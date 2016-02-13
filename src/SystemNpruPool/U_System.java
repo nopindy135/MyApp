@@ -20,5 +20,13 @@ public abstract class U_System {
          ,String cardId
          ,int type
          ,String tel);
+        public abstract void UpdateUser(String U_Id,String name
+         ,String lastname
+         ,String address
+         ,String birthday
+         ,String cardId
+         ,int type
+         ,String tel);
+         public abstract void DeleteUser(int U_Id);
  //public abstract void ShowUser();
 }

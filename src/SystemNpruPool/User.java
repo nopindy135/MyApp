@@ -104,20 +104,12 @@ stmt=connect.createStatement();
                 Statement stmt = null;
 		
 		try {
-
-Class.forName("com.mysql.jdbc.Driver");
-String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
-connect = DriverManager.getConnection ( urlConnection, "root", "" );
-stmt=connect.createStatement();
-		
-             
-              
-
-			
+                        Class.forName("com.mysql.jdbc.Driver");
+                        String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
+                        connect = DriverManager.getConnection ( urlConnection, "root", "" );
 			stmt = connect.createStatement();
-			
 			String sql = "INSERT INTO user " +
-					"(U_Firstname,U_Lastname,U_Address,U_Birthday,U_CardId,U_Type,U_Tel) " + 
+					"(U_Firstname,U_Lastname,U_Address,U_Birthday,U_CardID,U_Type,U_Tel) " + 
 					"VALUES ('" + name + "','" + lastname + "'"
                                 + "" +
 					",'" + address + "','" + birthday + "','" + cardId + "','" + type + "','" + tel + "') ";
@@ -142,7 +134,86 @@ stmt=connect.createStatement();
 		}
 		
 	}
+
+    @Override
+    public void UpdateUser(String u_Id,String name, String lastname, String address, String birthday, String cardId, int type, String tel) {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   	Connection connect = null;
+                Statement stmt = null;
+		
+		try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
+                        connect = DriverManager.getConnection ( urlConnection, "root", "" );
+			stmt = connect.createStatement();
+                        String sql = "UPDATE User " +
+					"SET U_Firstname = '" + name + "' " +
+                                "SET U_Lirstname = '" + lastname + "' " +
+                                "SET U_Address = '" + address + "' " +
+                                "SET U_Birthday = '" + birthday + "' " +
+                                "SET U_CardID = '" + cardId + "' " +
+                                "SET U_Type = '" + type + "' " +
+                                "SET U_Tel = '" + tel + "' " +
+					" WHERE U_ID = '" + u_Id + "' ";
+             stmt.execute(sql);
+            
+             System.out.println("Record Update Successfully");
+             
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// Close
+		try {
+			if(connect != null){
+				stmt.close();
+				connect.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+    
+
+    @Override
+    public void DeleteUser(int U_Id) {
+      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    Connection connect = null;
+                Statement stmt = null;
+		
+		try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
+                        connect = DriverManager.getConnection ( urlConnection, "root", "" );
+			stmt = connect.createStatement();
+                        String sql = "DELETE FROM user " +
+					" WHERE U_ID ='" + U_Id + "' ";
+             stmt.execute(sql);
+            
+             System.out.println("Record Delete Successfully");
+             
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// Close
+		try {
+			if(connect != null){
+				stmt.close();
+				connect.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
     }
+    
  
     
 
