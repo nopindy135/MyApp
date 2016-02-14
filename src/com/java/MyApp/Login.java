@@ -152,7 +152,7 @@ public class Login extends javax.swing.JFrame {
       System.out.print("false");
       JOptionPane.showMessageDialog(null,
 	    "Username & Password Wrong.",
-	    "Please try again",
+	    "Please try again.",
 	    JOptionPane.WARNING_MESSAGE);
  }
       
