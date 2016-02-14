@@ -16,14 +16,39 @@ import java.util.Date;
  * @author Godonlyknows
  */
 public class User extends U_System{
-    public int u_Id;
+   public int u_Id;
    public String u_Firstname;
    public String u_Lastname;
-    public String u_Address ; 
-    public String u_Birthday ;
-    public String u_CardId ;
-  public   int u_Type ;
+   public String u_Address ; 
+   public String u_Birthday ;
+   public String u_CardId ;
+   public int u_Type ;
    public  String u_Tel;
+   //method get
+    public int getU_Id(){
+       return u_Id;
+   }
+    public String getU_Firstname(){
+       return u_Firstname;
+   }
+    public String getU_Lastname(){
+       return u_Lastname;
+   }
+    public String getU_Address(){
+       return u_Address;
+   }
+    public String getU_Birthday(){
+       return u_Birthday;
+   }
+    public String getU_CardId(){
+       return u_CardId;
+   }
+   public int getU_Type(){
+       return u_Type;
+   }
+   public String getU_Tel(){
+       return u_Tel;
+   }
     public void ShowUser(){
 		Connection connect = null;
                 Statement stmt = null;

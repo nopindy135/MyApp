@@ -5,18 +5,81 @@
  */
 package com.java.MyApp;
 
+import SystemNpruPool.User;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author Boss
  */
 public class history_use extends javax.swing.JFrame {
+User us = new User();
 
     /**
      * Creates new form history_use
      */
     public history_use() {
         initComponents();
-    }
+        
+       // us.ShowUser();
+        	DefaultTableModel model = (DefaultTableModel)showdata.getModel();
+	
+        	//Header Sort
+		TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel> (model);
+		showdata.setRowSorter(sorter);
+                Connection connect = null;
+		Statement stmt = null;
+		
+		try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
+                    connect = DriverManager.getConnection ( urlConnection, "root", "" );
+                    stmt=connect.createStatement();
+			
+			String sql = "SELECT * FROM  user ORDER BY U_ID ASC";
+			
+			ResultSet rec = stmt.executeQuery(sql);
+			int row = 0;
+			while((rec!=null) && (rec.next()))
+            {			
+				model.addRow(new Object[0]);
+				model.setValueAt(rec.getString("U_ID"), row, 0);
+				model.setValueAt(rec.getString("U_Firstname"), row, 1);
+				model.setValueAt(rec.getString("U_Lastname"), row, 2);
+				model.setValueAt(rec.getString("U_Type"), row, 3);
+			//	model.setValueAt(rec.getFloat("Budget"), row, 4);
+			//	model.setValueAt(rec.getFloat("Used"), row, 5);
+				row++;
+            }
+
+			rec.close();
+             
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, e.getMessage());
+			e.printStackTrace();
+		}
+		
+		try {
+			if(stmt != null) {
+				stmt.close();
+				connect.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,14 +91,14 @@ public class history_use extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        showdata = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        showdata.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        showdata.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -46,7 +109,7 @@ public class history_use extends javax.swing.JFrame {
                 "รหัสสมาชิก", "ชื่อ", "นามสกุล", "ประเภทผู้ใช้งาน"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(showdata);
 
         jLabel1.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
         jLabel1.setText("แสดงประวัติผู้เข้าใช้งาน");
@@ -133,6 +196,6 @@ public class history_use extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable showdata;
     // End of variables declaration//GEN-END:variables
 }
