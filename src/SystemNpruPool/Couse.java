@@ -14,14 +14,9 @@ import java.sql.Statement;
  *
  * @author Godonlyknows
  */
-public class Payment {
-    public void InsertPaymet(int money,  String Datepay ,
-           String time,
-           String type,
-           int uid,
-           int stid
-          ){
-       
+public class Couse {
+    public void register_coues(int r_Type , String r_Time ,String r_Date , int u_Id ,int c_Id){
+        
 		Connection connect = null;
                 Statement stmt = null;
 		
@@ -30,14 +25,14 @@ public class Payment {
                         String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
                         connect = DriverManager.getConnection ( urlConnection, "root", "" );
 			stmt = connect.createStatement();
-			String sql = "INSERT INTO payment " +
-					"(P_Money,P_Date,P_Time,P_Type,U_Id,St_Id) " + 
-					"VALUES ('" + money+ "','" + Datepay + "'"
+			String sql = "INSERT INTO register " +
+					"(R_Type,R_Time,R_Date,U_ID,C_ID) " + 
+					"VALUES ('" + r_Type + "','" + r_Time + "'"
                                 + "" +
-					",'" + time + "','" + type + "','" + uid + "','" + stid + "') ";
+					",'" + r_Date + "','" + u_Id + "','" + c_Id + "') ";
                          stmt.execute(sql);
              
-                         
+                         System.out.println("Record User Inserted Successfully");
              
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -56,6 +51,6 @@ public class Payment {
 		}
 		
 	}
+    }
 
-}
 
