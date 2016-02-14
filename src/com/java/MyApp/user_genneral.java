@@ -6,6 +6,7 @@
 package com.java.MyApp;
 
 import SystemNpruPool.User;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -103,6 +104,11 @@ public class user_genneral extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jButton2.setText("กลับหน้าหลัก");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,7 +194,17 @@ public class user_genneral extends javax.swing.JFrame {
         // TODO add your handling code here:
         User us = new User();
         us.InsertUser(in_Firstname.getText(),in_Lastname.getText(),in_Address.getText(),in_Birthday.getText(),in_CardId.getText(),1,in_Tel.getText());
+         JOptionPane.showMessageDialog(null,
+	    "บันทึกข้อมูลสำเร็จ.",
+	    "",
+	    JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        user form5 = new user();
+        form5.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
