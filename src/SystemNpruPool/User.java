@@ -169,7 +169,7 @@ stmt=connect.createStatement();
                 return  ch ;
 }
 
-    public void InsertUser(String name, String lastname, String address, String birthday, String cardId, int type, String tel) {
+    public void InsertUser(int id , String name, String lastname, String address, String birthday, String cardId, int type, String tel) {
        
 		Connection connect = null;
                 Statement stmt = null;
@@ -180,8 +180,8 @@ stmt=connect.createStatement();
                         connect = DriverManager.getConnection ( urlConnection, "root", "" );
 			stmt = connect.createStatement();
 			String sql = "INSERT INTO user " +
-					"(U_Firstname,U_Lastname,U_Address,U_Birthday,U_CardID,U_Type,U_Tel) " + 
-					"VALUES ('" + name + "','" + lastname + "'"
+					"(U_ID,U_Firstname,U_Lastname,U_Address,U_Birthday,U_CardID,U_Type,U_Tel) " + 
+					"VALUES ('" + id + "','" + name + "','" + lastname + "'"
                                 + "" +
 					",'" + address + "','" + birthday + "','" + cardId + "','" + type + "','" + tel + "') ";
                          stmt.execute(sql);

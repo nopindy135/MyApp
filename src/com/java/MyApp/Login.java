@@ -140,13 +140,24 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        Staff st = new Staff();
        //String password = in_password.
+       if(in_stid.getText().equals("") || in_password.getPassword().equals("")){
+             JOptionPane.showMessageDialog(null,
+	    "Please Input Username & Password.",
+	    "Please try again.",
+	    JOptionPane.WARNING_MESSAGE);
+           }
+        else{
        String pw = String.valueOf(in_password.getPassword());
        boolean chst = st.CheckLogin(Integer.valueOf(in_stid.getText()),pw);
  //System.out.print(in_password.getPassword());
- if(chst == true){
+ if(chst == true){ // ถ้าใส่ถูก
      System.out.print("true");
+
        user form2 = new user();
+       Login lo =new Login();
+    
         form2.setVisible(true);
+        
         
  }else {
       System.out.print("false");
@@ -155,7 +166,8 @@ public class Login extends javax.swing.JFrame {
 	    "Please try again.",
 	    JOptionPane.WARNING_MESSAGE);
  }
-      
+       
+        }
        
     }//GEN-LAST:event_jButton1ActionPerformed
 

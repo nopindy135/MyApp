@@ -32,7 +32,7 @@ public class user_genneral extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        in_uid = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         in_CardId = new javax.swing.JTextField();
@@ -56,7 +56,7 @@ public class user_genneral extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("TH Sarabun New", 0, 20)); // NOI18N
         jLabel1.setText("ประเภทผู้ใช้งาน : บุคคลทั่วไป");
 
-        jTextField1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        in_uid.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel2.setText("รหัสสมาชิก");
@@ -136,7 +136,7 @@ public class user_genneral extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                                .addComponent(in_uid, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
                                 .addComponent(in_CardId, javax.swing.GroupLayout.Alignment.LEADING))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -157,7 +157,7 @@ public class user_genneral extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(in_uid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(in_CardId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -193,11 +193,14 @@ public class user_genneral extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         User us = new User();
-        us.InsertUser(in_Firstname.getText(),in_Lastname.getText(),in_Address.getText(),in_Birthday.getText(),in_CardId.getText(),1,in_Tel.getText());
+            menu m = new menu();
+                    m.setVisible(true);
+        us.InsertUser(Integer.valueOf(in_uid.getText()),in_Firstname.getText(),in_Lastname.getText(),in_Address.getText(),in_Birthday.getText(),in_CardId.getText(),1,in_Tel.getText());
          JOptionPane.showMessageDialog(null,
 	    "บันทึกข้อมูลสำเร็จ.",
 	    "",
 	    JOptionPane.WARNING_MESSAGE);
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -248,6 +251,7 @@ public class user_genneral extends javax.swing.JFrame {
     private javax.swing.JTextField in_Firstname;
     private javax.swing.JTextField in_Lastname;
     private javax.swing.JTextField in_Tel;
+    private javax.swing.JTextField in_uid;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -259,6 +263,5 @@ public class user_genneral extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

@@ -32,9 +32,9 @@ public class user extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        btn_historyuse = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btn_courseuser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -63,19 +63,29 @@ public class user extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
         jLabel3.setText("กรุณาเลือกประเภทของผู้เข้าใช้งาน");
 
-        jButton3.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jButton3.setText("ดูประวัติผู้เข้าใช้งานสระว่ายน้ำ");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btn_historyuse.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        btn_historyuse.setText("ดูประวัติผู้เข้าใช้งานสระว่ายน้ำ");
+        btn_historyuse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btn_historyuseActionPerformed(evt);
             }
         });
 
         jButton4.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jButton4.setText("ออกจากระบบ");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
-        jButton5.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jButton5.setText("รายชื่อผู้เข้าเรียนคอร์สว่ายน้ำ");
+        btn_courseuser.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        btn_courseuser.setText("รายชื่อผู้เข้าเรียนคอร์สว่ายน้ำ");
+        btn_courseuser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_courseuserActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,9 +95,9 @@ public class user extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btn_historyuse)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))
+                .addComponent(btn_courseuser, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -123,8 +133,8 @@ public class user extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btn_historyuse, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_courseuser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -142,9 +152,25 @@ public class user extends javax.swing.JFrame {
        form4.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_historyuseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_historyuseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        history_use hu = new history_use();
+        hu.setVisible(true);
+    }//GEN-LAST:event_btn_historyuseActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+     Login login = new Login();
+          user us = new user();
+        // us.set
+       login.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btn_courseuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_courseuserActionPerformed
+        // TODO add your handling code here:
+        course_user cu = new course_user();
+        cu.setVisible(true);
+    }//GEN-LAST:event_btn_courseuserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,11 +208,11 @@ public class user extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_courseuser;
+    private javax.swing.JButton btn_historyuse;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

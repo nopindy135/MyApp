@@ -112,6 +112,8 @@ public class member extends javax.swing.JFrame {
         boolean chu = us.CheckUser(Integer.valueOf(in_uid.getText()));
                 if(chu == true){
                     System.out.println("true");
+                    menu m = new menu();
+                    m.setVisible(true);
                 }else {
                     
                     System.out.println("false");

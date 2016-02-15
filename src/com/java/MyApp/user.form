@@ -28,9 +28,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButton4" min="-2" pref="136" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+              <Component id="btn_historyuse" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton5" pref="181" max="32767" attributes="0"/>
+              <Component id="btn_courseuser" pref="0" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
@@ -75,9 +75,9 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButton4" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
-                      <Component id="jButton3" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
+                      <Component id="btn_historyuse" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jButton5" max="32767" attributes="0"/>
+                  <Component id="btn_courseuser" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -132,7 +132,7 @@
         <Property name="text" type="java.lang.String" value="&#xe01;&#xe23;&#xe38;&#xe13;&#xe32;&#xe40;&#xe25;&#xe37;&#xe2d;&#xe01;&#xe1b;&#xe23;&#xe30;&#xe40;&#xe20;&#xe17;&#xe02;&#xe2d;&#xe07;&#xe1c;&#xe39;&#xe49;&#xe40;&#xe02;&#xe49;&#xe32;&#xe43;&#xe0a;&#xe49;&#xe07;&#xe32;&#xe19;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="btn_historyuse">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="TH Sarabun New" size="18" style="0"/>
@@ -140,7 +140,7 @@
         <Property name="text" type="java.lang.String" value="&#xe14;&#xe39;&#xe1b;&#xe23;&#xe30;&#xe27;&#xe31;&#xe15;&#xe34;&#xe1c;&#xe39;&#xe49;&#xe40;&#xe02;&#xe49;&#xe32;&#xe43;&#xe0a;&#xe49;&#xe07;&#xe32;&#xe19;&#xe2a;&#xe23;&#xe30;&#xe27;&#xe48;&#xe32;&#xe22;&#xe19;&#xe49;&#xe33;"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_historyuseActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton4">
@@ -150,14 +150,20 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&#xe2d;&#xe2d;&#xe01;&#xe08;&#xe32;&#xe01;&#xe23;&#xe30;&#xe1a;&#xe1a;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton5">
+    <Component class="javax.swing.JButton" name="btn_courseuser">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="TH Sarabun New" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="&#xe23;&#xe32;&#xe22;&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe40;&#xe02;&#xe49;&#xe32;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19;&#xe04;&#xe2d;&#xe23;&#xe4c;&#xe2a;&#xe27;&#xe48;&#xe32;&#xe22;&#xe19;&#xe49;&#xe33;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_courseuserActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
