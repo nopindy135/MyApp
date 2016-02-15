@@ -5,17 +5,46 @@
  */
 package com.java.MyApp;
 
+import SystemNpruPool.Register;
+import SystemNpruPool.Staff;
+import SystemNpruPool.User;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Boss
  */
 public class course_swim extends javax.swing.JFrame {
+        User u =new User();
+
+        Staff st =new Staff();
 
     /**
      * Creates new form course_swim
      */
     public course_swim() {
         initComponents();
+        u.CheckUser(u.getU_Id());
+             System.out.println("u id on  swim_pool= "+u.getU_Id());
+                System.out.println("st id on befor swim_pool= "+st.getSt_Id());
+           st.CheckStaff(st.getSt_Id());
+           System.out.println("st id on after swim_pool= "+st.getSt_Id());
+           st.CheckLogin(st.getSt_Id(),st.getSt_Password());
+            out_uid.setText(String.valueOf(u.getU_Id()));
+            out_ubirthday.setText(u.getU_Birthday());
+          
+            out_ufirstname.setText(u.getU_Firstname());
+            out_ulastname.setText(u.getU_Lastname());
+       out_uage.setText(String.valueOf(u.getU_Age()));
+       if(in_c1.isSelected()){
+             out_pricecourse.setText("90 บาท");
+       }
+       else if(in_c2.isSelected()){
+              out_pricecourse.setText("95 บาท");
+       }
+         
     }
 
     /**
@@ -27,6 +56,9 @@ public class course_swim extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -39,12 +71,12 @@ public class course_swim extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         out_uage = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        in_c1 = new javax.swing.JRadioButton();
-        in_c2 = new javax.swing.JRadioButton();
         jLabel13 = new javax.swing.JLabel();
         out_pricecourse = new javax.swing.JLabel();
         btn_course_swim = new javax.swing.JButton();
         btn_menu = new javax.swing.JButton();
+        in_c1 = new javax.swing.JButton();
+        in_c2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,20 +117,6 @@ public class course_swim extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel12.setText("กรุณาเลือคอร์สที่ต้องการ");
 
-        in_c1.setText("คอร์สสอนว่ายน้ำสำหรับผู้มีอายุไม่เกิน 12 ปี");
-        in_c1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                in_c1ActionPerformed(evt);
-            }
-        });
-
-        in_c2.setText("คอร์สสอนว่ายน้ำสำหรับผู้มีอายุมากกว่า 12 ปี");
-        in_c2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                in_c2ActionPerformed(evt);
-            }
-        });
-
         jLabel13.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel13.setText("ราคา");
 
@@ -116,12 +134,29 @@ public class course_swim extends javax.swing.JFrame {
         btn_menu.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         btn_menu.setText("กลับหน้าหลัก");
 
+        in_c1.setText("คอร์สสอนว่ายน้ำสำหรับผู้มีอายุไม่เกิน 12 ปี");
+        in_c1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                in_c1ActionPerformed(evt);
+            }
+        });
+
+        in_c2.setText("คอร์สสอนว่ายน้ำสำหรับผู้มีอายุมากกว่า 12 ปี");
+        in_c2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                in_c2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -149,23 +184,20 @@ public class course_swim extends javax.swing.JFrame {
                                             .addGap(18, 18, 18)
                                             .addComponent(out_ubirthday)))
                                     .addComponent(jLabel12)
-                                    .addComponent(in_c1)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(in_c2, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel13)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(out_pricecourse)))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel13)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(out_pricecourse))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(in_c1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(in_c2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(70, 70, 70)
                                 .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(86, 86, 86)
                                 .addComponent(btn_course_swim, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 60, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btn_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 302, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -197,31 +229,74 @@ public class course_swim extends javax.swing.JFrame {
                 .addComponent(in_c1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(in_c2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(out_pricecourse)
                     .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_course_swim, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_menu, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                .addComponent(btn_menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_course_swimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_course_swimActionPerformed
+        // TODO add your handling code here:
+        Register rg =new Register();
+        int money ;
+        int c_Id=0  ; 
+        if(out_pricecourse.getText().equals("90 บาท")){
+            money =90;
+            c_Id =1;
+             Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");
+        String currentDate = df.format(c.getTime());//ปีเดือนวัน
+        String currentDate1= df1.format(c.getTime());//ปีเดือนวัน+เวลาล
+        rg.InsertRegister(1, currentDate1, currentDate, u.getU_Id(), c_Id);
+                  JOptionPane.showMessageDialog(null,
+	    "ทำรายการสำเร็จ.",
+	    "",
+	    JOptionPane.WARNING_MESSAGE);
+        }
+        else if(out_pricecourse.getText().equals("95 บาท")){
+            money = 95;
+            c_Id =2;
+             Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");
+        String currentDate = df.format(c.getTime());//ปีเดือนวัน
+        String currentDate1= df1.format(c.getTime());//ปีเดือนวัน+เวลาล
+        rg.InsertRegister(1, currentDate1, currentDate, u.getU_Id(), c_Id);
+              JOptionPane.showMessageDialog(null,
+	    "ทำรายการสำเร็จ.",
+	    "",
+	    JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+                 JOptionPane.showMessageDialog(null,
+	    "กรุณาเลือก คอร์สที่ต้องการ.",
+	    "โปรดทำรายการใหม่อีกครั้ง.",
+	    JOptionPane.WARNING_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_btn_course_swimActionPerformed
+
     private void in_c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_c1ActionPerformed
         // TODO add your handling code here:
+          
+             out_pricecourse.setText("90 บาท");
+      
+       
     }//GEN-LAST:event_in_c1ActionPerformed
 
     private void in_c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_c2ActionPerformed
         // TODO add your handling code here:
+          out_pricecourse.setText("95 บาท");
     }//GEN-LAST:event_in_c2ActionPerformed
-
-    private void btn_course_swimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_course_swimActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_course_swimActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,8 +336,11 @@ public class course_swim extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_course_swim;
     private javax.swing.JButton btn_menu;
-    private javax.swing.JRadioButton in_c1;
-    private javax.swing.JRadioButton in_c2;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JButton in_c1;
+    private javax.swing.JButton in_c2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;

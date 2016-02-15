@@ -36,6 +36,7 @@ public class swim_pool extends javax.swing.JFrame {
             out_ulastname.setText(u.getU_Lastname());
             out_ubirthday.setText(u.getU_Birthday());
             out_utype.setText(String.valueOf(u.getU_Type()));
+     
     }
 
     /**

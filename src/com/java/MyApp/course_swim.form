@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup2">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup3">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -25,6 +33,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="btn_menu" min="-2" pref="102" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -57,14 +69,14 @@
                                       </Group>
                                   </Group>
                                   <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="in_c1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="in_c2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="out_pricecourse" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="out_pricecourse" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="in_c1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="in_c2" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -77,11 +89,7 @@
                               <Component id="btn_course_swim" min="-2" pref="162" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="60" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="btn_menu" min="-2" pref="102" max="-2" attributes="0"/>
+                      <EmptySpace pref="302" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -121,7 +129,7 @@
               <Component id="in_c1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="in_c2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="out_pricecourse" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
@@ -129,7 +137,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btn_course_swim" min="-2" pref="56" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btn_menu" pref="36" max="32767" attributes="0"/>
+              <Component id="btn_menu" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -235,22 +243,6 @@
         <Property name="text" type="java.lang.String" value="&#xe01;&#xe23;&#xe38;&#xe13;&#xe32;&#xe40;&#xe25;&#xe37;&#xe2d;&#xe04;&#xe2d;&#xe23;&#xe4c;&#xe2a;&#xe17;&#xe35;&#xe48;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe01;&#xe32;&#xe23;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="in_c1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&#xe04;&#xe2d;&#xe23;&#xe4c;&#xe2a;&#xe2a;&#xe2d;&#xe19;&#xe27;&#xe48;&#xe32;&#xe22;&#xe19;&#xe49;&#xe33;&#xe2a;&#xe33;&#xe2b;&#xe23;&#xe31;&#xe1a;&#xe1c;&#xe39;&#xe49;&#xe21;&#xe35;&#xe2d;&#xe32;&#xe22;&#xe38;&#xe44;&#xe21;&#xe48;&#xe40;&#xe01;&#xe34;&#xe19; 12 &#xe1b;&#xe35;"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="in_c1ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="in_c2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&#xe04;&#xe2d;&#xe23;&#xe4c;&#xe2a;&#xe2a;&#xe2d;&#xe19;&#xe27;&#xe48;&#xe32;&#xe22;&#xe19;&#xe49;&#xe33;&#xe2a;&#xe33;&#xe2b;&#xe23;&#xe31;&#xe1a;&#xe1c;&#xe39;&#xe49;&#xe21;&#xe35;&#xe2d;&#xe32;&#xe22;&#xe38;&#xe21;&#xe32;&#xe01;&#xe01;&#xe27;&#xe48;&#xe32; 12 &#xe1b;&#xe35;"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="in_c2ActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel13">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -285,6 +277,22 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&#xe01;&#xe25;&#xe31;&#xe1a;&#xe2b;&#xe19;&#xe49;&#xe32;&#xe2b;&#xe25;&#xe31;&#xe01;"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="in_c1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xe04;&#xe2d;&#xe23;&#xe4c;&#xe2a;&#xe2a;&#xe2d;&#xe19;&#xe27;&#xe48;&#xe32;&#xe22;&#xe19;&#xe49;&#xe33;&#xe2a;&#xe33;&#xe2b;&#xe23;&#xe31;&#xe1a;&#xe1c;&#xe39;&#xe49;&#xe21;&#xe35;&#xe2d;&#xe32;&#xe22;&#xe38;&#xe44;&#xe21;&#xe48;&#xe40;&#xe01;&#xe34;&#xe19; 12 &#xe1b;&#xe35;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="in_c1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="in_c2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xe04;&#xe2d;&#xe23;&#xe4c;&#xe2a;&#xe2a;&#xe2d;&#xe19;&#xe27;&#xe48;&#xe32;&#xe22;&#xe19;&#xe49;&#xe33;&#xe2a;&#xe33;&#xe2b;&#xe23;&#xe31;&#xe1a;&#xe1c;&#xe39;&#xe49;&#xe21;&#xe35;&#xe2d;&#xe32;&#xe22;&#xe38;&#xe21;&#xe32;&#xe01;&#xe01;&#xe27;&#xe48;&#xe32; 12 &#xe1b;&#xe35;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="in_c2ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -21,8 +21,10 @@ public class User extends U_System{
    public String u_Lastname;
    public String u_Address ; 
    public String u_Birthday ;
+   public int u_Age;
    public String u_CardId ;
    public int u_Type ;
+   
    public  String u_Tel;
    //method get
     public int getU_Id(){
@@ -41,6 +43,9 @@ public class User extends U_System{
     public String getU_Birthday(){
        return u_Birthday;
    }
+    public int getU_Age(){
+        return u_Age;
+    }
     public String getU_CardId(){
        return u_CardId;
    }
@@ -52,6 +57,9 @@ public class User extends U_System{
    }
    public void setU_Id(int id){
        u_Id = id;
+   }
+   public void setU_Age(int age){
+       u_Age = age;
    }
    
     public void setU_Firstanem(String firstname){
@@ -187,6 +195,7 @@ stmt=connect.createStatement();
                             setU_CardId(rec.getString("U_CardId"));
                             setU_Type(rec.getInt("U_Type"));
                             setU_Tel(rec.getString("U_Tel"));
+                            setU_Age(rec.getInt("U_Age"));
                            //     System.out.print("after"+u_Firstname);
                         }
                         else {
@@ -223,10 +232,10 @@ stmt=connect.createStatement();
                         connect = DriverManager.getConnection ( urlConnection, "root", "" );
 			stmt = connect.createStatement();
 			String sql = "INSERT INTO user " +
-					"(U_ID,U_Firstname,U_Lastname,U_Address,U_Birthday,U_CardID,U_Type,U_Tel) " + 
+					"(U_ID,U_Firstname,U_Lastname,U_Address,U_Birthday,U_Age,U_CardID,U_Type,U_Tel) " + 
 					"VALUES ('" + id + "','" + name + "','" + lastname + "'"
                                 + "" +
-					",'" + address + "','" + birthday + "','" + cardId + "','" + type + "','" + tel + "') ";
+					",'" + address + "','" + birthday + "',YEAR(FROM_DAYS(DATEDIFF(NOW(),U_Birthday ))),'" + cardId + "','" + type + "','" + tel + "') ";
                          stmt.execute(sql);
              
                          System.out.println("Record User Inserted Successfully");
