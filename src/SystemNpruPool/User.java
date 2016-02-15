@@ -16,7 +16,7 @@ import java.util.Date;
  * @author Godonlyknows
  */
 public class User extends U_System{
-   public int u_Id;
+   public static int u_Id;
    public String u_Firstname;
    public String u_Lastname;
    public String u_Address ; 
@@ -29,6 +29,7 @@ public class User extends U_System{
        return u_Id;
    }
     public String getU_Firstname(){
+        System.out.print(u_Firstname);
        return u_Firstname;
    }
     public String getU_Lastname(){
@@ -49,6 +50,31 @@ public class User extends U_System{
    public String getU_Tel(){
        return u_Tel;
    }
+   public void setU_Id(int id){
+       u_Id = id;
+   }
+   
+    public void setU_Firstanem(String firstname){
+       u_Firstname = firstname;
+   }
+      public void setU_Lastname(String lastname){
+       u_Lastname = lastname;
+   }
+        public void setU_Address(String address){
+       u_Address = address;
+   }
+          public void setU_Birthday(String birthday){
+       u_Birthday = birthday;
+   }
+            public void setU_CardId(String cardid){
+       u_CardId = cardid;
+   }
+              public void setU_Type(int type){
+       u_Type= type;
+   }
+              public void setU_Tel(String tel){
+                  u_Tel = tel;
+              }
     public void ShowUser(){
 		Connection connect = null;
                 Statement stmt = null;
@@ -137,14 +163,31 @@ stmt=connect.createStatement();
              
 			
 			
-			String sql = "SELECT U_ID FROM user WHERE U_ID ='" + u_id + "'  ";
+			String sql = "SELECT * FROM user WHERE U_ID ='" + u_id + "'  ";
 			
 			ResultSet rec = stmt.executeQuery(sql);
-                        
+                    
+			
+		
+          
+             
+    
+                       
 			while((rec!=null) && (rec.next()))
             {
                         if(rec.getInt("U_ID") == u_id ){
                             ch = true;
+                          //  u_Firstname = rec.getString("U_Firstname");
+                             //   System.out.println(u_Firstname);
+                          //   System.out.print("befor"+u_Firstname);
+                            setU_Firstanem(rec.getString("U_Firstname"));
+                            setU_Lastname(rec.getString("U_Lastname"));
+                            setU_Address(rec.getString("U_Address"));
+                            setU_Birthday(rec.getString("U_Birthday"));
+                            setU_CardId(rec.getString("U_CardId"));
+                            setU_Type(rec.getInt("U_Type"));
+                            setU_Tel(rec.getString("U_Tel"));
+                           //     System.out.print("after"+u_Firstname);
                         }
                         else {
                             ch=false;

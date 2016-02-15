@@ -5,6 +5,7 @@
  */
 package com.java.MyApp;
 
+import SystemNpruPool.Staff;
 import SystemNpruPool.User;
 import javax.swing.JOptionPane;
 
@@ -109,9 +110,16 @@ public class member extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         User us = new User();
+        Staff st =new Staff();
+          System.out.println("St id on befo member= "+st.getSt_Id());
+        st.CheckStaff(st.getSt_Id());
         boolean chu = us.CheckUser(Integer.valueOf(in_uid.getText()));
                 if(chu == true){
                     System.out.println("true");
+                    us.setU_Id(Integer.valueOf(in_uid.getText()));
+                   System.out.println("St id on member= "+st.getSt_Id());
+                   System.out.println("u id on member = "+us.getU_Id());
+                    
                     menu m = new menu();
                     m.setVisible(true);
                 }else {

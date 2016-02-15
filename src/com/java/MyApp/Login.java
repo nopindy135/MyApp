@@ -6,6 +6,8 @@
 package com.java.MyApp;
 
 import SystemNpruPool.Staff;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 import sun.applet.resources.MsgAppletViewer;
 
@@ -151,13 +153,16 @@ public class Login extends javax.swing.JFrame {
        boolean chst = st.CheckLogin(Integer.valueOf(in_stid.getText()),pw);
  //System.out.print(in_password.getPassword());
  if(chst == true){ // ถ้าใส่ถูก
-     System.out.print("true");
-
+     System.out.println("true");
+       st.setSt_Id(Integer.valueOf(in_stid.getText()));
+       System.out.println("St id login = "+st.getSt_Id());
+       st.setSt_Password(pw);
+       
        user form2 = new user();
        Login lo =new Login();
     
         form2.setVisible(true);
-        
+      
         
  }else {
       System.out.print("false");
@@ -174,6 +179,10 @@ public class Login extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    public void close(){
+        WindowEvent winclose = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winclose);
+    }
     public static void main(String args[]) {
       
 

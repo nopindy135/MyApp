@@ -27,7 +27,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="231" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="116" max="-2" attributes="0"/>
+                      <Component id="btn_menu" min="-2" pref="116" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
@@ -50,7 +50,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="261" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="35" max="-2" attributes="0"/>
+              <Component id="btn_menu" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace pref="43" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -116,7 +116,7 @@
         <Property name="text" type="java.lang.String" value="&#xe41;&#xe2a;&#xe14;&#xe07;&#xe1b;&#xe23;&#xe30;&#xe27;&#xe31;&#xe15;&#xe34;&#xe1c;&#xe39;&#xe49;&#xe40;&#xe02;&#xe49;&#xe32;&#xe43;&#xe0a;&#xe49;&#xe07;&#xe32;&#xe19;&#xe2a;&#xe23;&#xe30;&#xe27;&#xe48;&#xe32;&#xe22;&#xe19;&#xe49;&#xe33;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btn_menu">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="TH Sarabun New" size="18" style="0"/>
@@ -124,7 +124,7 @@
         <Property name="text" type="java.lang.String" value="&#xe01;&#xe25;&#xe31;&#xe1a;&#xe2b;&#xe19;&#xe49;&#xe32;&#xe2b;&#xe25;&#xe31;&#xe01;"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_menuActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

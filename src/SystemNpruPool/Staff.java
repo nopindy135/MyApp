@@ -16,7 +16,7 @@ import java.sql.Statement;
  * @author Godonlyknows
  */
 public class Staff {
-    public String St_Id;
+    public static int St_Id;
     public String St_Password;
     public String St_Name ;
     public String St_Age; 
@@ -25,6 +25,18 @@ public class Staff {
     public String St_Start_Time;
     public String St_End_Time; 
     
+    public  int getSt_Id(){
+       return  St_Id;
+    }
+    public String getSt_Password(){
+        return St_Password;
+    }
+    public void setSt_Id(int stid){
+        St_Id = stid;
+    }
+    public void setSt_Password(String Stpassword){
+        St_Password = Stpassword;
+    }
     public boolean CheckLogin(int id,String passWord){
           Connection connect = null;
     boolean ch =false  ;
@@ -50,6 +62,59 @@ public class Staff {
                 String chpass = rec.getString("St_Password");
                         if(chid == id && passWord.equals(chpass)){
                             ch = true;
+                          //  setSt_Id(rec.getInt("St_ID"));
+                          //  setSt_Password(rec.getString("St_Password"));
+                        }
+                        else {
+                            ch=false;
+                        }
+            }
+             
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// Close
+		try {
+			if(connect != null){
+				stmt.close();
+				connect.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+                return  ch ;
+    }
+     public boolean CheckStaff(int id){
+          Connection connect = null;
+    boolean ch =false  ;
+                Statement stmt = null;
+		
+		try {
+
+                    Class.forName("com.mysql.jdbc.Driver");
+                    String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
+                    connect = DriverManager.getConnection ( urlConnection, "root", "" );
+                    stmt=connect.createStatement();
+		
+             
+			
+			
+			String sql = "SELECT * FROM staff WHERE St_ID ='" + id + "'";
+			
+			ResultSet rec = stmt.executeQuery(sql);
+                        
+			while((rec!=null) && (rec.next()))
+            {
+                int chid = rec.getInt("St_ID");
+               // String chpass = rec.getString("St_Password");
+                        if(chid == id ){
+                            ch = true;
+                            setSt_Id(rec.getInt("St_ID"));
+                            System.out.println("st on select id = "+getSt_Id());
+                          //  setSt_Password(rec.getString("St_Password"));
                         }
                         else {
                             ch=false;
@@ -74,3 +139,5 @@ public class Staff {
                 return  ch ;
     }
 }
+
+

@@ -43,7 +43,7 @@ User us = new User();
                     connect = DriverManager.getConnection ( urlConnection, "root", "" );
                     stmt=connect.createStatement();
 			
-			String sql = "SELECT * FROM  user ORDER BY U_ID ASC";
+			String sql = "SELECT * FROM  user join payment WHERE user.U_ID = payment.U_Id ORDER BY user.U_ID ASC";
 			
 			ResultSet rec = stmt.executeQuery(sql);
 			int row = 0;
@@ -93,7 +93,7 @@ User us = new User();
         jScrollPane1 = new javax.swing.JScrollPane();
         showdata = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_menu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,11 +114,11 @@ User us = new User();
         jLabel1.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
         jLabel1.setText("แสดงประวัติผู้เข้าใช้งานสระว่ายน้ำ");
 
-        jButton1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jButton1.setText("กลับหน้าหลัก");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_menu.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        btn_menu.setText("กลับหน้าหลัก");
+        btn_menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_menuActionPerformed(evt);
             }
         });
 
@@ -130,7 +130,7 @@ User us = new User();
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(231, 231, 231)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -147,16 +147,18 @@ User us = new User();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        menu m =new menu();
+        m.setVisible(true);
+    }//GEN-LAST:event_btn_menuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,7 +196,7 @@ User us = new User();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_menu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable showdata;

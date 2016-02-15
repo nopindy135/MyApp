@@ -31,20 +31,20 @@ public class course_swim extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        out_uid = new javax.swing.JLabel();
+        out_ufirstname = new javax.swing.JLabel();
+        out_ulastname = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        out_ubirthday = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        out_uage = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        in_c1 = new javax.swing.JRadioButton();
+        in_c2 = new javax.swing.JRadioButton();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        out_pricecourse = new javax.swing.JLabel();
+        btn_course_swim = new javax.swing.JButton();
+        btn_menu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,55 +61,60 @@ public class course_swim extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel4.setText("รหัสสมาชิก");
 
-        jLabel7.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel7.setText(".......................");
+        out_uid.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_uid.setText(".......................");
 
-        jLabel9.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel9.setText("......................");
+        out_ufirstname.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_ufirstname.setText("......................");
 
-        jLabel10.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel10.setText(".............................");
+        out_ulastname.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_ulastname.setText(".............................");
 
         jLabel5.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel5.setText("วัน / เดือน / ปี เกิด");
 
-        jLabel6.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel6.setText(".........................");
+        out_ubirthday.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_ubirthday.setText(".........................");
 
         jLabel8.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel8.setText("อายุ");
 
-        jLabel11.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel11.setText(".........................");
+        out_uage.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_uage.setText(".........................");
 
         jLabel12.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel12.setText("กรุณาเลือคอร์สที่ต้องการ");
 
-        jRadioButton2.setText("คอร์สสอนว่ายน้ำสำหรับผู้มีอายุไม่เกิน 12 ปี");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        in_c1.setText("คอร์สสอนว่ายน้ำสำหรับผู้มีอายุไม่เกิน 12 ปี");
+        in_c1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                in_c1ActionPerformed(evt);
             }
         });
 
-        jRadioButton1.setText("คอร์สสอนว่ายน้ำสำหรับผู้มีอายุมากกว่า 12 ปี");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        in_c2.setText("คอร์สสอนว่ายน้ำสำหรับผู้มีอายุมากกว่า 12 ปี");
+        in_c2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                in_c2ActionPerformed(evt);
             }
         });
 
         jLabel13.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel13.setText("ราคา");
 
-        jLabel14.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel14.setText("...................        บาท");
+        out_pricecourse.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_pricecourse.setText("...................        บาท");
 
-        jButton1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jButton1.setText("เสร็จสิ้น");
+        btn_course_swim.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        btn_course_swim.setText("เสร็จสิ้น");
+        btn_course_swim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_course_swimActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jButton2.setText("กลับหน้าหลัก");
+        btn_menu.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        btn_menu.setText("กลับหน้าหลัก");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,42 +130,42 @@ public class course_swim extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addGap(49, 49, 49)
-                                        .addComponent(jLabel7))
+                                        .addComponent(out_uid))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jLabel9)
+                                        .addComponent(out_ufirstname)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel3)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jLabel10))
+                                        .addComponent(out_ulastname))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addComponent(jLabel8)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel11))
+                                            .addComponent(out_uage))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addComponent(jLabel5)
                                             .addGap(18, 18, 18)
-                                            .addComponent(jLabel6)))
+                                            .addComponent(out_ubirthday)))
                                     .addComponent(jLabel12)
-                                    .addComponent(jRadioButton2)
+                                    .addComponent(in_c1)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jRadioButton1, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(in_c2, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel13)
                                             .addGap(18, 18, 18)
-                                            .addComponent(jLabel14)))))
+                                            .addComponent(out_pricecourse)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(70, 70, 70)
                                 .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(86, 86, 86)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btn_course_swim, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 60, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -171,48 +176,52 @@ public class course_swim extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel7))
+                    .addComponent(out_uid))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel9)
+                    .addComponent(out_ufirstname)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel10))
+                    .addComponent(out_ulastname))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                    .addComponent(out_ubirthday))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel11))
+                    .addComponent(out_uage))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(in_c1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton1)
+                .addComponent(in_c2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
+                    .addComponent(out_pricecourse)
                     .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_course_swim, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                .addComponent(btn_menu, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void in_c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_c1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_in_c1ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void in_c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_c2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_in_c2ActionPerformed
+
+    private void btn_course_swimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_course_swimActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_course_swimActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,23 +259,23 @@ public class course_swim extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_course_swim;
+    private javax.swing.JButton btn_menu;
+    private javax.swing.JRadioButton in_c1;
+    private javax.swing.JRadioButton in_c2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JLabel out_pricecourse;
+    private javax.swing.JLabel out_uage;
+    private javax.swing.JLabel out_ubirthday;
+    private javax.swing.JLabel out_ufirstname;
+    private javax.swing.JLabel out_uid;
+    private javax.swing.JLabel out_ulastname;
     // End of variables declaration//GEN-END:variables
 }

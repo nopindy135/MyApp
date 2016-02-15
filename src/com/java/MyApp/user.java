@@ -5,17 +5,23 @@
  */
 package com.java.MyApp;
 
+import SystemNpruPool.Staff;
+
 /**
  *
  * @author Boss
  */
 public class user extends javax.swing.JFrame {
+Staff st = new Staff();
 
     /**
      * Creates new form user
      */
     public user() {
         initComponents();
+        System.out.println("st id on user befo = "+st.getSt_Id());
+        st.CheckStaff(st.getSt_Id());
+          System.out.println("st id on user af = "+st.getSt_Id());
     }
 
     /**

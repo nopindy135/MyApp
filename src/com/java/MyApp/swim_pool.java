@@ -5,17 +5,37 @@
  */
 package com.java.MyApp;
 
+import SystemNpruPool.Payment;
+import SystemNpruPool.Staff;
+import SystemNpruPool.User;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  *
  * @author Boss
  */
 public class swim_pool extends javax.swing.JFrame {
-
+        User u =new User();
+        Staff st =new Staff();
     /**
      * Creates new form swim_pool
      */
     public swim_pool() {
         initComponents();
+           u.CheckUser(u.getU_Id());
+             System.out.println("u id on  swim_pool= "+u.getU_Id());
+                System.out.println("st id on befor swim_pool= "+st.getSt_Id());
+           st.CheckStaff(st.getSt_Id());
+           System.out.println("st id on after swim_pool= "+st.getSt_Id());
+           st.CheckLogin(st.getSt_Id(),st.getSt_Password());
+            out_uid.setText(String.valueOf(u.getU_Id()));
+            out_ucardid.setText(u.getU_CardId());
+          
+            out_ufirstname.setText(u.getU_Firstname());
+            out_ulastname.setText(u.getU_Lastname());
+            out_ubirthday.setText(u.getU_Birthday());
+            out_utype.setText(String.valueOf(u.getU_Type()));
     }
 
     /**
@@ -29,24 +49,21 @@ public class swim_pool extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        out_uid = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        out_ucardid = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        out_ufirstname = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        out_ulastname = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        out_ubirthday = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        out_utype = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_history_use = new javax.swing.JButton();
+        btn_user = new javax.swing.JButton();
+        in_pmoney = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,64 +74,59 @@ public class swim_pool extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel2.setText("รหัสสมาชิก");
 
-        jLabel3.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel3.setText("..............................");
+        out_uid.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_uid.setText("..............................");
 
         jLabel4.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel4.setText("รหัสบัตรประชาชน");
 
-        jLabel5.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel5.setText("..............................");
+        out_ucardid.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_ucardid.setText("..............................");
 
         jLabel6.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel6.setText("ชื่อ");
 
-        jLabel7.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel7.setText("......................................");
+        out_ufirstname.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_ufirstname.setText("......................................");
 
         jLabel8.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel8.setText("นามสกุล");
 
-        jLabel9.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel9.setText(".....................................");
+        out_ulastname.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_ulastname.setText(".....................................");
 
         jLabel10.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel10.setText("ัวัน/เดือน/ปี เกิด");
 
-        jLabel11.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel11.setText("..............................................");
+        out_ubirthday.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_ubirthday.setText("..............................................");
 
         jLabel12.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel12.setText("สถานะผู้ใช้งาน");
 
-        jLabel13.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel13.setText(".....บุคคลทั่วไป....หรือ ........สมาชิก........................");
+        out_utype.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_utype.setText(".....บุคคลทั่วไป....หรือ ........สมาชิก........................");
 
         jLabel15.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel15.setText("ค่าบริการ");
 
-        jRadioButton1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jRadioButton1.setText("10 บาท");
-
-        jRadioButton2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jRadioButton2.setText("20 บาท");
-
-        jRadioButton3.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jRadioButton3.setText("30 บาท");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        btn_history_use.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        btn_history_use.setText("เสร็จสิ้น");
+        btn_history_use.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                btn_history_useActionPerformed(evt);
             }
         });
 
-        jRadioButton4.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jRadioButton4.setText("50 บาท");
+        btn_user.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        btn_user.setText("กลับหน้าหลัก");
+        btn_user.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_userActionPerformed(evt);
+            }
+        });
 
-        jButton1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jButton1.setText("เสร็จสิ้น");
-
-        jButton2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jButton2.setText("กลับหน้าหลัก");
+        in_pmoney.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30 บาท", "50 บาท" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,44 +144,36 @@ public class swim_pool extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel7)))
+                                        .addComponent(out_ufirstname)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(90, 90, 90)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel3)))
+                                            .addComponent(out_ucardid)
+                                            .addComponent(out_uid)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel8)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jLabel9))))
+                                        .addComponent(out_ulastname))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel10)
-                                    .addComponent(jLabel12))
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel15))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel11)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton2)
-                                .addGap(14, 14, 14)
-                                .addComponent(jRadioButton3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton4))))
+                                    .addComponent(out_utype)
+                                    .addComponent(out_ubirthday)
+                                    .addComponent(in_pmoney, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(117, 117, 117)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_history_use, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_user, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -180,45 +184,67 @@ public class swim_pool extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(out_uid))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5))
+                    .addComponent(out_ucardid))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel7)
+                    .addComponent(out_ufirstname)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel9))
+                    .addComponent(out_ulastname))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel11))
+                    .addComponent(out_ubirthday))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jLabel13))
+                    .addComponent(out_utype))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton4))
+                    .addComponent(in_pmoney, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                    .addComponent(btn_history_use, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+                    .addComponent(btn_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void btn_history_useActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_history_useActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+          Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");
+        String currentDate = df.format(c.getTime());//ปีเดือนวัน
+        String currentDate1= df1.format(c.getTime());//ปีเดือนวัน+เวลาล
+        Payment pm =new Payment();
+
+        history_use hu =new history_use();
+        hu.setVisible(true);
+        //int money;
+        
+        if(in_pmoney.getSelectedItem().equals("30 บาท")){
+    pm.InsertPaymet(30, currentDate, currentDate1,"เงินสด",Integer.valueOf(out_uid.getText()),st.getSt_Id());
+        }
+        else if(in_pmoney.getSelectedItem().equals("50 บาท")){
+         pm.InsertPaymet(50, currentDate, currentDate1,"เงินสด",Integer.valueOf(out_uid.getText()),st.getSt_Id());
+        }
+       
+        
+    }//GEN-LAST:event_btn_history_useActionPerformed
+
+    private void btn_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_userActionPerformed
+        // TODO add your handling code here:
+        menu m=new menu();
+        m.setVisible(true);
+    }//GEN-LAST:event_btn_userActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,25 +282,22 @@ public class swim_pool extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_history_use;
+    private javax.swing.JButton btn_user;
+    private javax.swing.JComboBox in_pmoney;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JLabel out_ubirthday;
+    private javax.swing.JLabel out_ucardid;
+    private javax.swing.JLabel out_ufirstname;
+    private javax.swing.JLabel out_uid;
+    private javax.swing.JLabel out_ulastname;
+    private javax.swing.JLabel out_utype;
     // End of variables declaration//GEN-END:variables
 }
