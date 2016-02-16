@@ -84,7 +84,7 @@ public class course_swim extends javax.swing.JFrame {
         in_c1 = new javax.swing.JButton();
         in_c2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Swimming-52.png"))); // NOI18N
@@ -139,6 +139,11 @@ public class course_swim extends javax.swing.JFrame {
 
         btn_menu.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         btn_menu.setText("กลับหน้าหลัก");
+        btn_menu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_menuActionPerformed(evt);
+            }
+        });
 
         in_c1.setText("คอร์สสอนว่ายน้ำสำหรับผู้มีอายุไม่เกิน 12 ปี");
         in_c1.addActionListener(new java.awt.event.ActionListener() {
@@ -159,52 +164,45 @@ public class course_swim extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btn_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(49, 49, 49)
+                        .addComponent(out_uid))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(out_uage))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addGap(18, 18, 18)
+                            .addComponent(out_ubirthday)))
+                    .addComponent(jLabel12)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(in_c1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(in_c2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(49, 49, 49)
-                                        .addComponent(out_uid))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(out_ufirstname)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(out_ulastname))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jLabel8)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(out_uage))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jLabel5)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(out_ubirthday)))
-                                    .addComponent(jLabel12)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel13)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(out_pricecourse))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(in_c1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(in_c2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(86, 86, 86)
-                                .addComponent(btn_course_swim, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 302, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(jLabel13)
+                                .addGap(18, 18, 18)
+                                .addComponent(out_pricecourse))
+                            .addComponent(btn_course_swim, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel1)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(18, 18, 18)
+                            .addComponent(out_ufirstname)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel3)
+                            .addGap(18, 18, 18)
+                            .addComponent(out_ulastname))))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,11 +238,13 @@ public class course_swim extends javax.swing.JFrame {
                     .addComponent(out_pricecourse)
                     .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_course_swim, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_course_swim, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
+
+        getAccessibleContext().setAccessibleName("สมัครเรียนคอร์สเรียนว่ายน้ำ");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -255,18 +255,23 @@ public class course_swim extends javax.swing.JFrame {
         int money ;
         int c_Id=0  ; 
         if(out_pricecourse.getText().equals("90 บาท")){
-            money =90;
+        money =90;
             c_Id =1;
              Calendar c = Calendar.getInstance();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                 SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");
         String currentDate = df.format(c.getTime());//ปีเดือนวัน
         String currentDate1= df1.format(c.getTime());//ปีเดือนวัน+เวลาล
-        rg.InsertRegister(1, currentDate1, currentDate, u.getU_Id(), c_Id);
+              System.out.println(c_Id);
+
+        rg.InsertRegister(1, currentDate1, currentDate, u.getU_Id(), 1);
                   JOptionPane.showMessageDialog(null,
 	    "ทำรายการสำเร็จ.",
 	    "",
 	    JOptionPane.WARNING_MESSAGE);
+                  course_user cu = new course_user();
+                  cu.setVisible(true);
+                    close();
         }
         else if(out_pricecourse.getText().equals("95 บาท")){
             money = 95;
@@ -276,11 +281,17 @@ public class course_swim extends javax.swing.JFrame {
                 SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");
         String currentDate = df.format(c.getTime());//ปีเดือนวัน
         String currentDate1= df1.format(c.getTime());//ปีเดือนวัน+เวลาล
-        rg.InsertRegister(1, currentDate1, currentDate, u.getU_Id(), c_Id);
+              System.out.println(c_Id);
+
+        rg.InsertRegister(1, currentDate1, currentDate, u.getU_Id(), 2);
               JOptionPane.showMessageDialog(null,
 	    "ทำรายการสำเร็จ.",
 	    "",
 	    JOptionPane.WARNING_MESSAGE);
+                    course_user cu = new course_user();
+                  cu.setVisible(true);
+                  
+                close();
         }
         else{
                  JOptionPane.showMessageDialog(null,
@@ -288,7 +299,7 @@ public class course_swim extends javax.swing.JFrame {
 	    "โปรดทำรายการใหม่อีกครั้ง.",
 	    JOptionPane.WARNING_MESSAGE);
         }
-        
+     System.out.println(c_Id);
     }//GEN-LAST:event_btn_course_swimActionPerformed
 
     private void in_c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_c1ActionPerformed
@@ -303,6 +314,13 @@ public class course_swim extends javax.swing.JFrame {
         // TODO add your handling code here:
           out_pricecourse.setText("95 บาท");
     }//GEN-LAST:event_in_c2ActionPerformed
+
+    private void btn_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menuActionPerformed
+        // TODO add your handling code here:
+        user u =new user();
+           u.setVisible(true);
+        close();
+    }//GEN-LAST:event_btn_menuActionPerformed
 
     /**
      * @param args the command line arguments

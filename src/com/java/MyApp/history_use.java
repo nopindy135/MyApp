@@ -100,7 +100,7 @@ User us = new User();
         jLabel1 = new javax.swing.JLabel();
         btn_menu = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         showdata.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         showdata.setModel(new javax.swing.table.DefaultTableModel(
@@ -142,7 +142,7 @@ User us = new User();
                     .addGroup(layout.createSequentialGroup()
                         .addGap(188, 188, 188)
                         .addComponent(jLabel1)))
-                .addContainerGap(289, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,13 +156,16 @@ User us = new User();
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
+        getAccessibleContext().setAccessibleName("แสดงประวัติผู้เข้าใช้สระว่ายน้ำ");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menuActionPerformed
         // TODO add your handling code here:
-        menu m =new menu();
-        m.setVisible(true);
+          user u = new user();
+        u.setVisible(true);
+        close();
     }//GEN-LAST:event_btn_menuActionPerformed
 
     /**

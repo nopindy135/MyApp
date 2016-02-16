@@ -8,6 +8,8 @@ package com.java.MyApp;
 import SystemNpruPool.Payment;
 import SystemNpruPool.Staff;
 import SystemNpruPool.User;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -38,6 +40,10 @@ public class swim_pool extends javax.swing.JFrame {
             out_utype.setText(String.valueOf(u.getU_Type()));
      
     }
+      public void close(){
+        WindowEvent winclose = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winclose);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,7 +72,7 @@ public class swim_pool extends javax.swing.JFrame {
         btn_user = new javax.swing.JButton();
         in_pmoney = new javax.swing.JComboBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Swimming Pool-64.png"))); // NOI18N
@@ -168,13 +174,13 @@ public class swim_pool extends javax.swing.JFrame {
                                     .addComponent(out_ubirthday)
                                     .addComponent(in_pmoney, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addComponent(btn_history_use, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_user, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_user, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(jLabel1)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -237,14 +243,14 @@ public class swim_pool extends javax.swing.JFrame {
         else if(in_pmoney.getSelectedItem().equals("50 บาท")){
          pm.InsertPaymet(50, currentDate, currentDate1,"เงินสด",Integer.valueOf(out_uid.getText()),st.getSt_Id());
         }
-       
-        
+            close();
     }//GEN-LAST:event_btn_history_useActionPerformed
 
     private void btn_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_userActionPerformed
         // TODO add your handling code here:
-        menu m=new menu();
-        m.setVisible(true);
+        user u =new user();
+        u.setVisible(true);
+        close();
     }//GEN-LAST:event_btn_userActionPerformed
 
     /**

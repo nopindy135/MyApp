@@ -7,6 +7,14 @@ package com.java.MyApp;
 
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -19,6 +27,53 @@ public class course_user extends javax.swing.JFrame {
      */
     public course_user() {
         initComponents();
+        DefaultTableModel model = (DefaultTableModel)showcourse.getModel();
+	
+        	//Header Sort
+		TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel> (model);
+		showcourse.setRowSorter(sorter);
+                Connection connect = null;
+		Statement stmt = null;
+		
+		try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
+                    connect = DriverManager.getConnection ( urlConnection, "root", "" );
+                    stmt=connect.createStatement();
+			
+			String sql = "SELECT * FROM  user join register WHERE user.U_ID = register.U_ID ORDER BY user.U_ID ASC";
+			
+			ResultSet rec = stmt.executeQuery(sql);
+			int row = 0;
+			while((rec!=null) && (rec.next()))
+            {			
+				model.addRow(new Object[0]);
+				model.setValueAt(rec.getString("U_ID"), row, 0);
+				model.setValueAt(rec.getString("U_Firstname"), row, 1);
+				model.setValueAt(rec.getString("U_Lastname"), row, 2);
+				model.setValueAt(rec.getString("register.R_Type"), row, 3);
+			//	model.setValueAt(rec.getFloat("Budget"), row, 4);
+			//	model.setValueAt(rec.getFloat("Used"), row, 5);
+				row++;
+            }
+
+			rec.close();
+             
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, e.getMessage());
+			e.printStackTrace();
+		}
+		
+		try {
+			if(stmt != null) {
+				stmt.close();
+				connect.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
       public void close(){
         WindowEvent winclose = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
@@ -36,16 +91,16 @@ public class course_user extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        showcourse = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
         jLabel1.setText("รายชื่อผู้เรียนคอร์สว่ายน้ำ");
 
-        jTable1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        showcourse.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        showcourse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -56,10 +111,15 @@ public class course_user extends javax.swing.JFrame {
                 "รหัสสมาชิก", "ชื่อ", "นามสกุล", "ประเภทคอร์ส"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(showcourse);
 
         jButton1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jButton1.setText("กลับหน้าหลัก");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,7 +136,7 @@ public class course_user extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(203, 203, 203)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(287, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,8 +150,19 @@ public class course_user extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
+        getAccessibleContext().setAccessibleName("รายชื่อผู้เรียนคอร์สว่ายน้ำ");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+   
+          user u =new user();
+           u.setVisible(true);
+                close();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,6 +203,6 @@ public class course_user extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable showcourse;
     // End of variables declaration//GEN-END:variables
 }

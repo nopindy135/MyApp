@@ -44,7 +44,7 @@ public void close(){
         jButton2 = new javax.swing.JButton();
         in_uid = new javax.swing.JFormattedTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
         jLabel1.setText("ประเภทผู้ใช้งาน : สมาชิก");
@@ -111,6 +111,8 @@ public void close(){
                 .addContainerGap(95, Short.MAX_VALUE))
         );
 
+        getAccessibleContext().setAccessibleName("ประเภทผู้ใช้งาน : สมาชิก");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -129,6 +131,7 @@ public void close(){
                     
                     menu m = new menu();
                     m.setVisible(true);
+                     close();
                 }else {
                     
                     System.out.println("false");
@@ -137,12 +140,15 @@ public void close(){
 	    "กรุณากรอกใหม่อีกครั้ง",
 	    JOptionPane.WARNING_MESSAGE);
                 }
+                   
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-          user form5 = new user();
+        user form5 = new user();
         form5.setVisible(true);
+        member m = new member();
+      close();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

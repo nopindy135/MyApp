@@ -212,6 +212,7 @@ public class user_genneral extends javax.swing.JFrame {
         // TODO add your handling code here:
         user form5 = new user();
         form5.setVisible(true);
+        close();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

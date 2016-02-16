@@ -2,8 +2,11 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
+  <AccessibilityProperties>
+    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="&#xe1b;&#xe23;&#xe30;&#xe40;&#xe20;&#xe17;&#xe1c;&#xe39;&#xe49;&#xe43;&#xe0a;&#xe49;&#xe07;&#xe32;&#xe19; : &#xe2a;&#xe21;&#xe32;&#xe0a;&#xe34;&#xe01;"/>
+  </AccessibilityProperties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>

@@ -40,7 +40,7 @@ public class menu extends javax.swing.JFrame {
         btn_Course_swim = new javax.swing.JButton();
         btn_user = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
         jLabel1.setText("กรุณาเลือกบริการ");
@@ -100,8 +100,8 @@ public class menu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_user, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addComponent(btn_user, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,9 +118,11 @@ public class menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(btn_Course_swim, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_user, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addComponent(btn_user, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
+
+        getAccessibleContext().setAccessibleName("เมนูหลัก");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -129,18 +131,21 @@ public class menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         swim_pool sp = new swim_pool();
         sp.setVisible(true);
+            close();
     }//GEN-LAST:event_btn_swim_poolActionPerformed
 
     private void btn_Regis_memberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Regis_memberActionPerformed
         // TODO add your handling code here:
         regis_member rm =new regis_member();
         rm.setVisible(true);
+            close();
     }//GEN-LAST:event_btn_Regis_memberActionPerformed
 
     private void btn_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_userActionPerformed
         // TODO add your handling code here:
         user us = new user();
         us.setVisible(true);
+            close();
         
     }//GEN-LAST:event_btn_userActionPerformed
 
@@ -148,6 +153,7 @@ public class menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         course_swim cs =new course_swim();
         cs.setVisible(true);
+           //close();
     }//GEN-LAST:event_btn_Course_swimActionPerformed
 
     /**
