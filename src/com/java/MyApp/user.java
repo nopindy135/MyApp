@@ -6,6 +6,8 @@
 package com.java.MyApp;
 
 import SystemNpruPool.Staff;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 
 /**
  *
@@ -22,6 +24,10 @@ Staff st = new Staff();
         System.out.println("st id on user befo = "+st.getSt_Id());
         st.CheckStaff(st.getSt_Id());
           System.out.println("st id on user af = "+st.getSt_Id());
+    }
+      public void close(){
+        WindowEvent winclose = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winclose);
     }
 
     /**

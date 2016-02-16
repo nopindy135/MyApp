@@ -8,6 +8,8 @@ package com.java.MyApp;
 import SystemNpruPool.Register;
 import SystemNpruPool.Staff;
 import SystemNpruPool.User;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -45,6 +47,10 @@ public class course_swim extends javax.swing.JFrame {
               out_pricecourse.setText("95 บาท");
        }
          
+    }
+      public void close(){
+        WindowEvent winclose = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winclose);
     }
 
     /**

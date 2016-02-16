@@ -7,6 +7,8 @@ package com.java.MyApp;
 
 import SystemNpruPool.Staff;
 import SystemNpruPool.User;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,8 +22,13 @@ public class member extends javax.swing.JFrame {
      */
     public member() {
         initComponents();
+        
     }
-
+public void close(){
+        WindowEvent winclose = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winclose);
+    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

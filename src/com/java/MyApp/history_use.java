@@ -6,6 +6,8 @@
 package com.java.MyApp;
 
 import SystemNpruPool.User;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -79,7 +81,10 @@ User us = new User();
 		
 		
 	}
-    
+      public void close(){
+        WindowEvent winclose = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winclose);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -5,6 +5,9 @@
  */
 package com.java.MyApp;
 
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author Boss
@@ -16,6 +19,10 @@ public class course_user extends javax.swing.JFrame {
      */
     public course_user() {
         initComponents();
+    }
+      public void close(){
+        WindowEvent winclose = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winclose);
     }
 
     /**
