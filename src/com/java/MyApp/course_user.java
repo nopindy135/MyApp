@@ -111,6 +111,7 @@ public class course_user extends javax.swing.JFrame {
                 "รหัสสมาชิก", "ชื่อ", "นามสกุล", "ประเภทคอร์ส"
             }
         ));
+        showcourse.setEnabled(false);
         jScrollPane1.setViewportView(showcourse);
 
         jButton1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N

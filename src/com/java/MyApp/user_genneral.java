@@ -40,7 +40,6 @@ public class user_genneral extends javax.swing.JFrame {
         in_uid = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        in_CardId = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         in_Firstname = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -49,11 +48,12 @@ public class user_genneral extends javax.swing.JFrame {
         in_Birthday = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        in_Tel = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         in_Address = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        in_CardId = new javax.swing.JFormattedTextField();
+        in_Tel = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -68,8 +68,6 @@ public class user_genneral extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel3.setText("รหัสบัตรประชาชน");
-
-        in_CardId.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel4.setText("ชื่อ");
@@ -92,8 +90,6 @@ public class user_genneral extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel8.setText("เบอร์โทรศัพท์");
 
-        in_Tel.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-
         in_Address.setColumns(20);
         in_Address.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         in_Address.setRows(5);
@@ -114,6 +110,18 @@ public class user_genneral extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        try {
+            in_CardId.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#############")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            in_Tel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,12 +148,11 @@ public class user_genneral extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(in_uid, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                                .addComponent(in_CardId, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(in_uid, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(in_Tel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                                    .addComponent(in_Tel, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(in_CardId, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
                                     .addComponent(in_Firstname, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(in_Birthday, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGap(2, 2, 2)
@@ -165,14 +172,17 @@ public class user_genneral extends javax.swing.JFrame {
                     .addComponent(in_uid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(in_CardId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(5, 5, 5)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(11, 11, 11))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(in_CardId, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(in_Firstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(in_Lastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(in_Lastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(in_Firstname, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(in_Birthday, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -180,8 +190,10 @@ public class user_genneral extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
-                    .addComponent(in_Tel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(in_Tel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
@@ -189,7 +201,7 @@ public class user_genneral extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         pack();
@@ -198,13 +210,72 @@ public class user_genneral extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         User us = new User();
-            menu m = new menu();
+        int check = 0 ;
+        String cUid ="" ;
+        String cUcardid="" ; 
+        String cUfirstname="";
+        String cUlastname="" ;
+        String cUbirthday="";
+        String cUtel="";
+        String cUaddress="";
+
+        if(in_uid.getText().equals("")
+                ||in_CardId.getText().equals("")
+                ||in_Firstname.getText().equals("") 
+                ||in_Lastname.getText().equals("")
+                ||in_Birthday.getText().equals("")
+                ||in_Tel.getText().equals("")
+                ||in_Address.getText().equals("")){
+        if(in_uid.getText().equals("")){
+            cUid="รหัสสมาชิก";
+        }
+        if(in_CardId.getText().equals("             ")){
+            cUcardid ="รหัสบัตรประชาชน";
+        }
+        if(in_Firstname.getText().equals("")){
+            cUfirstname="ชื่อ";
+        }
+        if(in_Lastname.getText().equals("")){
+            cUlastname = "นามสกุล";
+        }
+        if(in_Birthday.getText().equals("")){
+            cUbirthday = "วันเกิด";
+        }
+        if(in_Tel.getText().equals("          "))
+        {
+            cUtel = "เบอร์โทรศัพท์";
+        }
+        if(in_Address.getText().equals("")){
+            cUaddress = "ที่อยู่";
+        }
+        String allnull ="\n"+cUid+"\n"
+                +cUcardid+"\n"
+                +cUfirstname+"\n"
+                +cUlastname+"\n"
+                +cUbirthday+"\n"
+                +cUtel+"\n"
+                +cUaddress;
+          JOptionPane.showMessageDialog(null,
+	    "กรุณากรอก"+ allnull,
+	    "กรุณากรอกข้อมูลให้ครบถ้วน",
+	    JOptionPane.WARNING_MESSAGE);
+          check = 0 ;
+    }
+     
+     else{
+           check = 1;
+             menu m = new menu();
                     m.setVisible(true);
         us.InsertUser(Integer.valueOf(in_uid.getText()),in_Firstname.getText(),in_Lastname.getText(),in_Address.getText(),in_Birthday.getText(),in_CardId.getText(),1,in_Tel.getText());
          JOptionPane.showMessageDialog(null,
 	    "บันทึกข้อมูลสำเร็จ.",
 	    "",
 	    JOptionPane.WARNING_MESSAGE);
+       
+     }
+         
+        
+           
       
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -253,10 +324,10 @@ public class user_genneral extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea in_Address;
     private javax.swing.JTextField in_Birthday;
-    private javax.swing.JTextField in_CardId;
+    private javax.swing.JFormattedTextField in_CardId;
     private javax.swing.JTextField in_Firstname;
     private javax.swing.JTextField in_Lastname;
-    private javax.swing.JTextField in_Tel;
+    private javax.swing.JFormattedTextField in_Tel;
     private javax.swing.JTextField in_uid;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

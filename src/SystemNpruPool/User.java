@@ -24,9 +24,9 @@ public class User extends U_System{
    public int u_Age;
    public String u_CardId ;
    public int u_Type ;
-   
    public  String u_Tel;
    //method get
+   public static boolean status ;
     public int getU_Id(){
        return u_Id;
    }

@@ -114,6 +114,9 @@ User us = new User();
                 "รหัสสมาชิก", "ชื่อ", "นามสกุล", "ประเภทผู้ใช้งาน"
             }
         ));
+        showdata.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        showdata.setEnabled(false);
+        showdata.setName(""); // NOI18N
         jScrollPane1.setViewportView(showdata);
 
         jLabel1.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N

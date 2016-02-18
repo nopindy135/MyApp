@@ -153,6 +153,7 @@ public class menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         course_swim cs =new course_swim();
         cs.setVisible(true);
+                    close();
            //close();
     }//GEN-LAST:event_btn_Course_swimActionPerformed
 

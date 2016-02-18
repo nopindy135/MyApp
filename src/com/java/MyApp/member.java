@@ -68,7 +68,11 @@ public void close(){
             }
         });
 
-        in_uid.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        try {
+            in_uid.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,7 +137,7 @@ public void close(){
                     m.setVisible(true);
                      close();
                 }else {
-                    
+           
                     System.out.println("false");
                     JOptionPane.showMessageDialog(null,
 	    "ไม่พบรหัสสมาชิก",
