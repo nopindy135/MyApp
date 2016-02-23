@@ -74,6 +74,8 @@ public class Login extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/i_pass.png"))); // NOI18N
 
+        in_password.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
