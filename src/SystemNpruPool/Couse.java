@@ -5,6 +5,9 @@
  */
 package SystemNpruPool;
 
+import static SystemNpruPool.ConnectDB.passwordDB;
+import static SystemNpruPool.ConnectDB.urlConnection;
+import static SystemNpruPool.ConnectDB.usernameDB;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -22,8 +25,7 @@ public class Couse {
 		
 		try {
                         Class.forName("com.mysql.jdbc.Driver");
-                        String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
-                        connect = DriverManager.getConnection ( urlConnection, "root", "" );
+                       connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
 			stmt = connect.createStatement();
 			String sql = "INSERT INTO register " +
 					"(R_Type,R_Time,R_Date,U_ID,C_ID) " + 

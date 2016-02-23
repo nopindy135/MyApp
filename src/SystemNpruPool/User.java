@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package SystemNpruPool;
+import static SystemNpruPool.ConnectDB.passwordDB;
+import static SystemNpruPool.ConnectDB.urlConnection;
+import static SystemNpruPool.ConnectDB.usernameDB;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Connection;
@@ -88,10 +91,9 @@ public class User extends U_System{
                 Statement stmt = null;
 		
 		try {
-
 Class.forName("com.mysql.jdbc.Driver");
-String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
-connect = DriverManager.getConnection ( urlConnection, "root", "" );
+
+connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
 stmt=connect.createStatement();
 		
              
@@ -164,8 +166,7 @@ public boolean  CheckUser(int u_id){
 		try {
 
 Class.forName("com.mysql.jdbc.Driver");
-String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
-connect = DriverManager.getConnection ( urlConnection, "root", "" );
+connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
 stmt=connect.createStatement();
 		
              
@@ -228,8 +229,7 @@ stmt=connect.createStatement();
 		
 		try {
                         Class.forName("com.mysql.jdbc.Driver");
-                        String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
-                        connect = DriverManager.getConnection ( urlConnection, "root", "" );
+                     connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
 			stmt = connect.createStatement();
 			String sql = "INSERT INTO user " +
 					"(U_ID,U_Firstname,U_Lastname,U_Address,U_Birthday,U_Age,U_CardID,U_Type,U_Tel) " + 
@@ -266,8 +266,7 @@ stmt=connect.createStatement();
 		
 		try {
                         Class.forName("com.mysql.jdbc.Driver");
-                        String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
-                        connect = DriverManager.getConnection ( urlConnection, "root", "" );
+                        connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
 			stmt = connect.createStatement();
                         String sql = "UPDATE User " +
 					"SET U_Firstname = '" + name + "' " +
@@ -309,8 +308,7 @@ stmt=connect.createStatement();
 		
 		try {
                         Class.forName("com.mysql.jdbc.Driver");
-                        String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
-                        connect = DriverManager.getConnection ( urlConnection, "root", "" );
+                        connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
 			stmt = connect.createStatement();
                         String sql = "DELETE FROM user " +
 					" WHERE U_ID ='" + U_Id + "' ";
