@@ -54,6 +54,10 @@ public class user_genneral extends javax.swing.JFrame {
         in_CardId = new javax.swing.JFormattedTextField();
         in_Tel = new javax.swing.JFormattedTextField();
         in_Birthday = new javax.swing.JTextField();
+        txt_erroruid = new javax.swing.JLabel();
+        txt_errorbirthday = new javax.swing.JLabel();
+        txt_errortel = new javax.swing.JLabel();
+        txt_errorcardid = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -127,12 +131,27 @@ public class user_genneral extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        in_CardId.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                in_CardIdFocusLost(evt);
+            }
+        });
+        in_CardId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                in_CardIdActionPerformed(evt);
+            }
+        });
 
         try {
             in_Tel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        in_Tel.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                in_TelFocusLost(evt);
+            }
+        });
         in_Tel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 in_TelActionPerformed(evt);
@@ -140,11 +159,28 @@ public class user_genneral extends javax.swing.JFrame {
         });
 
         in_Birthday.setToolTipText("Example 2000-02-28");
+        in_Birthday.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                in_BirthdayFocusLost(evt);
+            }
+        });
         in_Birthday.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 in_BirthdayActionPerformed(evt);
             }
         });
+
+        txt_erroruid.setForeground(new java.awt.Color(255, 0, 0));
+        txt_erroruid.setText("..");
+
+        txt_errorbirthday.setForeground(new java.awt.Color(255, 0, 0));
+        txt_errorbirthday.setText("..");
+
+        txt_errortel.setForeground(new java.awt.Color(255, 0, 0));
+        txt_errortel.setText("..");
+
+        txt_errorcardid.setForeground(new java.awt.Color(255, 0, 0));
+        txt_errorcardid.setText("..");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -167,19 +203,32 @@ public class user_genneral extends javax.swing.JFrame {
                                     .addComponent(jLabel7))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(in_uid, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(in_uid, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txt_erroruid))
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(in_CardId, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
                                             .addComponent(in_Firstname, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addGap(2, 2, 2)
-                                        .addComponent(jLabel5)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(2, 2, 2)
+                                                .addComponent(jLabel5)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(in_Lastname, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(txt_errorcardid))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(in_Birthday, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(in_Tel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(in_Lastname, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(in_Birthday, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(in_Tel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txt_errorbirthday)
+                                            .addComponent(txt_errortel)))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(104, 104, 104)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -195,14 +244,17 @@ public class user_genneral extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(in_uid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(in_uid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_erroruid))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(11, 11, 11))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(in_CardId, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(in_CardId, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_errorcardid))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(in_Firstname, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -213,7 +265,9 @@ public class user_genneral extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(in_Birthday, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(in_Birthday, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_errorbirthday)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -222,7 +276,8 @@ public class user_genneral extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(in_Tel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel8)
+                            .addComponent(txt_errortel))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
@@ -328,12 +383,54 @@ public class user_genneral extends javax.swing.JFrame {
 
     private void in_uidFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_in_uidFocusLost
         // TODO add your handling code here:
-        
+        User uch= new User();
+        boolean checkuid =  uch.CheckU_Id(Integer.valueOf(in_uid.getText()));
+       if(checkuid == true){
+               txt_erroruid.setText("รหัสสมาชิกซ้ำ");
+    
+       }
+       if(checkuid == false){
+           txt_erroruid.setText("รหัสสมาชิกไม่ซ้ำ");
+       }
     }//GEN-LAST:event_in_uidFocusLost
 
     private void in_BirthdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_BirthdayActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_in_BirthdayActionPerformed
+
+    private void in_CardIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_CardIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_in_CardIdActionPerformed
+
+    private void in_BirthdayFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_in_BirthdayFocusLost
+        // TODO add your handling code here:
+     if(in_Birthday.getText().isEmpty()){
+         txt_errorbirthday.setText("กรุณาใส่วันเกิด ตัวอย่าง ปี-เดือน-วัน");
+     }
+     else{
+           txt_errorbirthday.setText("");
+     }
+    }//GEN-LAST:event_in_BirthdayFocusLost
+
+    private void in_TelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_in_TelFocusLost
+        // TODO add your handling code here:
+           if(in_Tel.getText().isEmpty()){
+         txt_errortel.setText("กรุณาใส่เบอร์โทรศัพท์");
+     }
+     else{
+           txt_errortel.setText("");
+     }
+    }//GEN-LAST:event_in_TelFocusLost
+
+    private void in_CardIdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_in_CardIdFocusLost
+        // TODO add your handling code here:
+          if(in_CardId.getText().isEmpty()){
+         txt_errorcardid.setText("กรุณาใส่รหัสบัตรประชาชน");
+     }
+     else{
+           txt_errorcardid.setText("");
+     }
+    }//GEN-LAST:event_in_CardIdFocusLost
 
     /**
      * @param args the command line arguments
@@ -389,5 +486,9 @@ public class user_genneral extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel txt_errorbirthday;
+    private javax.swing.JLabel txt_errorcardid;
+    private javax.swing.JLabel txt_errortel;
+    private javax.swing.JLabel txt_erroruid;
     // End of variables declaration//GEN-END:variables
 }

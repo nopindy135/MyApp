@@ -221,6 +221,58 @@ stmt=connect.createStatement();
 		}
                 return  ch ;
 }
+public boolean CheckU_Id(int u_id){
+     Connection connect = null;
+    boolean ch =false  ;
+                Statement stmt = null;
+		
+		try {
+
+Class.forName("com.mysql.jdbc.Driver");
+connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
+stmt=connect.createStatement();
+		
+             
+			
+			
+			String sql = "SELECT * FROM user WHERE U_ID ='" + u_id + "'  ";
+			
+			ResultSet rec = stmt.executeQuery(sql);
+                    
+			
+		
+          
+             
+    
+                       
+			while((rec!=null) && (rec.next()))
+            {
+                if(rec.getInt("U_ID") !=u_id){
+                    ch= false;
+                }
+                else{
+                    ch= true;
+                }
+            }
+                          System.out.println("Record Update Successfully");
+             
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// Close
+		try {
+			if(connect != null){
+				stmt.close();
+				connect.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+                return ch;
+}
 
     public void InsertUser(int id , String name, String lastname, String address, String birthday, String cardId, int type, String tel) {
        

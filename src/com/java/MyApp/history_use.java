@@ -168,8 +168,8 @@ User us = new User();
 
     private void btn_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menuActionPerformed
         // TODO add your handling code here:
-          user u = new user();
-        u.setVisible(true);
+          user form5 = new user();
+        form5.setVisible(true);
         close();
     }//GEN-LAST:event_btn_menuActionPerformed
 
