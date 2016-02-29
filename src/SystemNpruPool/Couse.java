@@ -53,6 +53,39 @@ public class Couse {
 		}
 		
 	}
-    }
+   public void update_couse(int u_id, int c_id){
+       Connection connect = null;
+                Statement stmt = null;
+		
+		try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
+			stmt = connect.createStatement();
+                         String sql = "UPDATE register " +
+                       
+                                "SET C_ID = '" + c_id + "' " +
+                              
+					" WHERE U_ID = '" + u_id + "' ";
+             stmt.execute(sql);
+            
+             System.out.println("Record Update Successfully");
+             
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// Close
+		try {
+			if(connect != null){
+				stmt.close();
+				connect.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+   }
+}
 
 

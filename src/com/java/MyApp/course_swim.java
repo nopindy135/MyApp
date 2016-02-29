@@ -322,8 +322,8 @@ public class course_swim extends javax.swing.JFrame {
 
     private void btn_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menuActionPerformed
         // TODO add your handling code here:
-        user u =new user();
-           u.setVisible(true);
+         user u =new user();
+        u.setVisible(true);
         close();
     }//GEN-LAST:event_btn_menuActionPerformed
 

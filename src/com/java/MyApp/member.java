@@ -151,7 +151,6 @@ public void close(){
         // TODO add your handling code here:
         user form5 = new user();
         form5.setVisible(true);
-        member m = new member();
       close();
     }//GEN-LAST:event_jButton2ActionPerformed
 

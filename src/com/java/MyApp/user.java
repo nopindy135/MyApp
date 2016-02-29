@@ -235,7 +235,7 @@ Staff st = new Staff();
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
      Login login = new Login();
-          user us = new user();
+        
         // us.set
        login.setVisible(true);
            close();

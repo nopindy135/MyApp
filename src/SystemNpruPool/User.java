@@ -298,7 +298,41 @@ stmt=connect.createStatement();
 		}
 		
 	}
-    
+      public void InsertMember( String u_Id, String MType, String MStart, String MEnd) {
+       
+		Connection connect = null;
+                Statement stmt = null;
+		
+		try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                     connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
+			stmt = connect.createStatement();
+			String sql = "INSERT INTO Member " +
+					"(U_ID,M_Type,M_Start,M_End) " + 
+					"VALUES ('" + u_Id + "','" + MType + "'"
+                                + "" +
+					",'" + MStart + "','" + MEnd + "') ";
+                         stmt.execute(sql);
+             
+                         System.out.println("Record User Inserted Successfully");
+             
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// Close
+		try {
+			if(connect != null){
+				stmt.close();
+				connect.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
     @Override
     public void DeleteUser(int U_Id) {

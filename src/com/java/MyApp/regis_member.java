@@ -5,22 +5,37 @@
  */
 package com.java.MyApp;
 
+
+import SystemNpruPool.Staff;
+import SystemNpruPool.User;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  *
  * @author Boss
  */
 public class regis_member extends javax.swing.JFrame {
-
+                User u = new User();
+                Staff st = new Staff();
     /**
      * Creates new form regis_member
      */
     public regis_member() {
+     
         initComponents();
+           u.CheckUser(u.getU_Id());
+        st.CheckStaff(st.getSt_Id());
+        st.CheckLogin(st.getSt_Id(),st.getSt_Password());
+        txt_Uid.setText(String.valueOf(u.getU_Id()));
+        txt_UcardId.setText(u.getU_CardId());
+        txt_fname.setText(u.getU_Firstname());
+            txt_lname.setText(u.getU_Lastname());
+            txt_birthday.setText(u.getU_Birthday());
     }
-      public void close(){
+public void close(){
         WindowEvent winclose = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winclose);
     }
@@ -34,22 +49,23 @@ public class regis_member extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        txt_fname = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        txt_lname = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        txt_birthday = new javax.swing.JLabel();
+        txt_Uid = new javax.swing.JLabel();
+        txt_UcardId = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        rid_Mtype1 = new javax.swing.JRadioButton();
+        rid_Mtype2 = new javax.swing.JRadioButton();
+        btn_member = new javax.swing.JButton();
+        btn_user = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,51 +82,61 @@ public class regis_member extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel4.setText("ชื่อ");
 
-        jLabel5.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel5.setText(".........................................");
+        txt_fname.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        txt_fname.setText(".........................................");
 
         jLabel6.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel6.setText("นามสกุล");
 
-        jLabel7.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel7.setText(".........................................");
+        txt_lname.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        txt_lname.setText(".........................................");
 
         jLabel8.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel8.setText("วัน/เดือน/ปี เกิด");
 
-        jLabel9.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel9.setText(".........................................");
+        txt_birthday.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        txt_birthday.setText(".........................................");
 
-        jLabel10.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel10.setText(".................................................");
+        txt_Uid.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        txt_Uid.setText(".................................................");
 
-        jLabel11.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel11.setText("...........................................");
+        txt_UcardId.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        txt_UcardId.setText("...........................................");
 
         jLabel12.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel12.setText("ค่าบริการ");
 
-        jRadioButton1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jRadioButton1.setText("อายุไม่เกิน 12 ปี ค่าบริการ 1000 บาท");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        rid_Mtype1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        rid_Mtype1.setText("อายุไม่เกิน 12 ปี ค่าบริการ 1000 บาท");
+        rid_Mtype1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                rid_Mtype1ActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jRadioButton2.setText("อายุมากกว่า 12 ปี ค่าบริการ 1200 บาท");
-
-        jButton1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/File-complete-icon.png"))); // NOI18N
-        jButton1.setText("เสร็จสิ้น");
-
-        jButton2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/home-icon.png"))); // NOI18N
-        jButton2.setText("กลับหน้าหลัก");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        rid_Mtype2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        rid_Mtype2.setText("อายุมากกว่า 12 ปี ค่าบริการ 1200 บาท");
+        rid_Mtype2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                rid_Mtype2ActionPerformed(evt);
+            }
+        });
+
+        btn_member.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        btn_member.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/File-complete-icon.png"))); // NOI18N
+        btn_member.setText("เสร็จสิ้น");
+        btn_member.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_memberActionPerformed(evt);
+            }
+        });
+
+        btn_user.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        btn_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/home-icon.png"))); // NOI18N
+        btn_user.setText("กลับหน้าหลัก");
+        btn_user.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_userActionPerformed(evt);
             }
         });
 
@@ -127,27 +153,27 @@ public class regis_member extends javax.swing.JFrame {
                                 .addComponent(jLabel12)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel11)
-                                        .addComponent(jLabel10))
+                                        .addComponent(txt_UcardId)
+                                        .addComponent(txt_Uid))
                                     .addGap(59, 59, 59))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jRadioButton1)
+                                            .addComponent(rid_Mtype1)
                                             .addGap(18, 18, 18))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btn_member, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(26, 26, 26)))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jRadioButton2)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(rid_Mtype2)
+                                        .addComponent(btn_user, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
+                                    .addComponent(txt_birthday)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel7)))
+                                        .addComponent(txt_lname)))
                                 .addGap(30, 30, 30))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(121, 121, 121)
@@ -157,7 +183,7 @@ public class regis_member extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel5))
+                                .addComponent(txt_fname))
                             .addComponent(jLabel8))
                         .addGap(65, 65, 65)))
                 .addContainerGap(32, Short.MAX_VALUE))
@@ -174,47 +200,70 @@ public class regis_member extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel10))
+                    .addComponent(txt_Uid))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel11))
+                    .addComponent(txt_UcardId))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5)
+                    .addComponent(txt_fname)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel7))
+                    .addComponent(txt_lname))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel9))
+                    .addComponent(txt_birthday))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(rid_Mtype1)
+                    .addComponent(rid_Mtype2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_user, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_member, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void btn_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_userActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-          user u =new user();
-           u.setVisible(true);
+             user u =new user();
+        u.setVisible(true);
         close();
-    }//GEN-LAST:event_jButton2ActionPerformed
+         
+    }//GEN-LAST:event_btn_userActionPerformed
+
+    private void btn_memberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_memberActionPerformed
+        // TODO add your handling code here:
+         Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");
+        String currentDate = df.format(c.getTime());//ปีเดือนวัน
+        String currentDate1= df1.format(c.getTime());//ปีเดือนวัน+เวลาล
+       User me =new User();
+       System.out.println(rid_Mtype1.getText());
+        if(rid_Mtype1.isSelected()){
+            me.InsertMember(String.valueOf(u.getU_Id()),rid_Mtype1.getText(),currentDate1,currentDate1);
+        }
+        else if (rid_Mtype2.isSelected()){
+              me.InsertMember(String.valueOf(u.getU_Id()),rid_Mtype2.getText(),currentDate1,currentDate1);
+        }
+        
+    }//GEN-LAST:event_btn_memberActionPerformed
+
+    private void rid_Mtype2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rid_Mtype2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rid_Mtype2ActionPerformed
+
+    private void rid_Mtype1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rid_Mtype1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rid_Mtype1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,21 +301,22 @@ public class regis_member extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_member;
+    private javax.swing.JButton btn_user;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton rid_Mtype1;
+    private javax.swing.JRadioButton rid_Mtype2;
+    private javax.swing.JLabel txt_UcardId;
+    private javax.swing.JLabel txt_Uid;
+    private javax.swing.JLabel txt_birthday;
+    private javax.swing.JLabel txt_fname;
+    private javax.swing.JLabel txt_lname;
     // End of variables declaration//GEN-END:variables
 }

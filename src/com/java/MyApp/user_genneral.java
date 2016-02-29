@@ -45,7 +45,6 @@ public class user_genneral extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         in_Lastname = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        in_Birthday = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -54,7 +53,7 @@ public class user_genneral extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         in_CardId = new javax.swing.JFormattedTextField();
         in_Tel = new javax.swing.JFormattedTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        in_Birthday = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -64,6 +63,16 @@ public class user_genneral extends javax.swing.JFrame {
         jLabel1.setText("ประเภทผู้ใช้งาน : บุคคลทั่วไป");
 
         in_uid.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        in_uid.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                in_uidFocusLost(evt);
+            }
+        });
+        in_uid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                in_uidActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel2.setText("รหัสสมาชิก");
@@ -83,9 +92,6 @@ public class user_genneral extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel6.setText("วัน/เดือน/ปี เกิด");
-
-        in_Birthday.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        in_Birthday.setText("ลบออกด้วย ลบเองมัน Error");
 
         jLabel7.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel7.setText("ที่อยู่ที่สามารถติดต่อได้");
@@ -127,32 +133,39 @@ public class user_genneral extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        in_Tel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                in_TelActionPerformed(evt);
+            }
+        });
 
-        jDateChooser1.setDateFormatString("d MMMM, yyyy");
-        jDateChooser1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jDateChooser1.setMaxSelectableDate(new java.util.Date(95620154519000L));
-        jDateChooser1.setMinSelectableDate(new java.util.Date(-62135791081000L));
+        in_Birthday.setToolTipText("Example 2000-02-28");
+        in_Birthday.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                in_BirthdayActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel7))
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(in_uid, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,20 +176,15 @@ public class user_genneral extends javax.swing.JFrame {
                                         .addGap(2, 2, 2)
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(in_Lastname, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 23, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(in_Tel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(in_Birthday, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(in_Lastname, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(in_Birthday, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(in_Tel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -202,12 +210,10 @@ public class user_genneral extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addComponent(jLabel5)
                         .addComponent(in_Lastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(in_Birthday, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(in_Birthday, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -240,12 +246,16 @@ public class user_genneral extends javax.swing.JFrame {
         String cUbirthday="";
         String cUtel="";
         String cUaddress="";
+      //  java.util.Date d = in_Birthday.getDate();
 
+            String in_birth = String.valueOf(in_Birthday.getText());
+       //     System.out.println("Date : "+d);
+            
         if(in_uid.getText().equals("")
                 ||in_CardId.getText().equals("")
                 ||in_Firstname.getText().equals("") 
                 ||in_Lastname.getText().equals("")
-                ||in_Birthday.getText().equals("")
+                ||in_birth.equals("")
                 ||in_Tel.getText().equals("")
                 ||in_Address.getText().equals("")){
         if(in_uid.getText().equals("")){
@@ -260,7 +270,7 @@ public class user_genneral extends javax.swing.JFrame {
         if(in_Lastname.getText().equals("")){
             cUlastname = "นามสกุล";
         }
-        if(in_Birthday.getText().equals("")){
+        if(in_birth.equals(" ")){
             cUbirthday = "วันเกิด";
         }
         if(in_Tel.getText().equals("          "))
@@ -288,7 +298,7 @@ public class user_genneral extends javax.swing.JFrame {
            check = 1;
              menu m = new menu();
                     m.setVisible(true);
-        us.InsertUser(Integer.valueOf(in_uid.getText()),in_Firstname.getText(),in_Lastname.getText(),in_Address.getText(),in_Birthday.getText(),in_CardId.getText(),1,in_Tel.getText());
+        us.InsertUser(Integer.valueOf(in_uid.getText()),in_Firstname.getText(),in_Lastname.getText(),in_Address.getText(),String.valueOf(in_Birthday.getText()),in_CardId.getText(),1,in_Tel.getText());
          JOptionPane.showMessageDialog(null,
 	    "บันทึกข้อมูลสำเร็จ.",
 	    "",
@@ -307,6 +317,23 @@ public class user_genneral extends javax.swing.JFrame {
         form5.setVisible(true);
         close();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void in_TelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_TelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_in_TelActionPerformed
+
+    private void in_uidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_uidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_in_uidActionPerformed
+
+    private void in_uidFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_in_uidFocusLost
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_in_uidFocusLost
+
+    private void in_BirthdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_BirthdayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_in_BirthdayActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,7 +380,6 @@ public class user_genneral extends javax.swing.JFrame {
     private javax.swing.JTextField in_uid;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
