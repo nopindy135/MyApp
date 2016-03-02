@@ -5,6 +5,22 @@
  */
 package com.java.MyApp;
 
+import static SystemNpruPool.ConnectDB.passwordDB;
+import static SystemNpruPool.ConnectDB.urlConnection;
+import static SystemNpruPool.ConnectDB.usernameDB;
+import SystemNpruPool.User;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
+
 
 
 /**
@@ -12,14 +28,74 @@ package com.java.MyApp;
  * @author Boss
  */
 public class learn_course extends javax.swing.JFrame {
-
+String U_Id;
     /**
      * Creates new form learn_course
      */
     public learn_course() {
         initComponents();
-       	
+        User uc= new User();
+       int uid= uc.getU_Id();
+        DefaultTableModel model = (DefaultTableModel)learn_courseTable.getModel();
 	
+        	//Header Sort
+		TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel> (model);
+		learn_courseTable.setRowSorter(sorter);
+    
+
+//String expr = E_Uid.getText();
+//sorter.setRowFilter(RowFilter.regexFilter(expr));
+sorter.setSortKeys(null);
+                Connection connect = null;
+		Statement stmt = null;
+		
+		try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
+                    stmt=connect.createStatement();
+			//WHERE U_ID ='" + u_id + "' 
+			String sql = "SELECT * FROM  coues join register WHERE coues.C_ID = register.C_ID and register.U_ID ='" +uid+ "'";
+			
+			ResultSet rec = stmt.executeQuery(sql);
+			int row = 0;
+			while((rec!=null) && (rec.next()))
+            {			
+				model.addRow(new Object[0]);
+                        
+				model.setValueAt(rec.getString("C_ID"), row, 0);
+				model.setValueAt(rec.getString("C_Name"), row, 1);
+				model.setValueAt(rec.getString("C_Hour_of_Coues"), row, 2);
+				model.setValueAt(rec.getString("C_Hour_Coues"), row, 3);
+			//	model.setValueAt(rec.getFloat("Budget"), row, 4);
+			//	model.setValueAt(rec.getFloat("Used"), row, 5);
+				row++;
+            }
+
+			rec.close();
+             
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, e.getMessage());
+			e.printStackTrace();
+		}
+		
+		try {
+			if(stmt != null) {
+				stmt.close();
+				connect.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+       	learn_courseTable.setModel(model);
+    
+        
+	
+    }
+      public void close(){
+        WindowEvent winclose = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winclose);
     }
 
     /**
@@ -31,39 +107,29 @@ public class learn_course extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        learn_courseTable = new javax.swing.JTable();
+        txt_CID = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txt_Cname = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txt_C_Hour_Coues = new javax.swing.JLabel();
+        txt_C_Hour_of_Coues = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+
+        jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Science-Classroom-icon.png"))); // NOI18N
         jLabel1.setText("เข้าเรียนคอร์สว่ายน้ำ");
-
-        jTable1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "เลือก", "รหัสคอร์สว่ายน้ำ", "ชื่อคอร์สว่ายน้ำ", "เวลาที่เริ่มเรียน", "เวลาเลิกเรียน"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
 
         jButton1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/File-complete-icon.png"))); // NOI18N
@@ -77,33 +143,124 @@ public class learn_course extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/home-icon.png"))); // NOI18N
         jButton2.setText("กลับหน้าหลัก");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        learn_courseTable.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        learn_courseTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "รหัสคอร์ส", "ชื่อคอร์ส", "เวลาทั้งหมด", "เวลาที่เข้าเรียน"
+            }
+        ));
+        learn_courseTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        learn_courseTable.setRequestFocusEnabled(false);
+        learn_courseTable.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        learn_courseTable.setSurrendersFocusOnKeystroke(true);
+        learn_courseTable.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                learn_courseTableMouseMoved(evt);
+            }
+        });
+        jScrollPane1.setViewportView(learn_courseTable);
+
+        txt_CID.setText("..");
+
+        jLabel2.setText("รหัสคอร์ส");
+
+        jLabel3.setText("ชื่อคอร์ส");
+
+        txt_Cname.setText("..");
+
+        jLabel6.setText("คอร์สที่เลือก");
+
+        jLabel7.setText("เวลาทั้งหมด");
+
+        txt_C_Hour_Coues.setText("..");
+
+        txt_C_Hour_of_Coues.setText("..");
+
+        jLabel10.setText("เวลาที่เข้าเรียน");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                                .addComponent(txt_C_Hour_Coues))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_Cname))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_CID)))
+                        .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel6)
+                        .addGap(32, 32, 32))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_C_Hour_of_Coues)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(101, 101, 101)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
-                        .addComponent(jButton2)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                        .addComponent(jButton2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txt_CID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txt_Cname))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_C_Hour_Coues)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_C_Hour_of_Coues)
+                            .addComponent(jLabel10)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -116,7 +273,27 @@ public class learn_course extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void learn_courseTableMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_learn_courseTableMouseMoved
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) learn_courseTable.getModel();
+       // U_Id=(model.getValueAt(learn_courseTable.getSelectedRow(),0).toString());
+        //  E_name.setText(model.getValueAt(showcourse.getSelectedRow(),1).toString());
+        // E_lastname.setText(model.getValueAt(showcourse.getSelectedRow(),2).toString());
+        txt_CID.setText(model.getValueAt(learn_courseTable.getSelectedRow(),0).toString());
+        txt_Cname.setText(model.getValueAt(learn_courseTable.getSelectedRow(),1).toString());
+        txt_C_Hour_of_Coues.setText(model.getValueAt(learn_courseTable.getSelectedRow(),2).toString());
+        txt_C_Hour_Coues.setText(model.getValueAt(learn_courseTable.getSelectedRow(),3).toString());
+    }//GEN-LAST:event_learn_courseTableMouseMoved
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        user user1 = new user();
+        user1.setVisible(true);
+       
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,7 +334,17 @@ public class learn_course extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable learn_courseTable;
+    private javax.swing.JLabel txt_CID;
+    private javax.swing.JLabel txt_C_Hour_Coues;
+    private javax.swing.JLabel txt_C_Hour_of_Coues;
+    private javax.swing.JLabel txt_Cname;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,6 +19,7 @@ import java.sql.Statement;
  * @author Godonlyknows
  */
 public class CheckConnetDB {
+
     public void CC(){
        
  
@@ -57,6 +58,40 @@ stmt=connect.createStatement();
 			e.printStackTrace();
 		}
 		
+	}
+           	public  boolean CheckConnect1(){
+		Connection connect = null;
+                Statement stmt = null;
+		boolean ch = false ;
+		try {
+
+Class.forName("com.mysql.jdbc.Driver");
+connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
+stmt=connect.createStatement();
+
+			if(connect != null){
+				System.out.println("Database Connect ");
+                                ch =true;
+			} else {
+				System.out.println("Database Connect Failed.");
+                                ch=false;
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// Close
+		try {
+			if(connect != null){
+				connect.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ch;
 	}
 
 }

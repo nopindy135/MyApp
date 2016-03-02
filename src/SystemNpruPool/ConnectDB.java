@@ -21,6 +21,6 @@ public interface ConnectDB {
     String usernameDB = "root";
     String passwordDB = "";
    // Connection connect = null;
-    String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
-
+    String urlConnection = "jdbc:mysql://127.0.0.1:3306/npru_pool?useUnicode=true&characterEncoding=UTF-8";
+    
 }

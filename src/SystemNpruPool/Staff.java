@@ -97,8 +97,7 @@ public class Staff {
 		try {
 
                     Class.forName("com.mysql.jdbc.Driver");
-                    String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
-                    connect = DriverManager.getConnection ( urlConnection, "root", "" );
+                    connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
                     stmt=connect.createStatement();
 		
              
@@ -116,6 +115,7 @@ public class Staff {
                             ch = true;
                             setSt_Id(rec.getInt("St_ID"));
                             System.out.println("st on select id = "+getSt_Id());
+                            
                           //  setSt_Password(rec.getString("St_Password"));
                         }
                         else {
@@ -140,6 +140,57 @@ public class Staff {
 		}
                 return  ch ;
     }
+     public boolean ChackStaff_Id(int id ){
+          Connection connect = null;
+    boolean ch =false  ;
+                Statement stmt = null;
+		
+		try {
+
+                    Class.forName("com.mysql.jdbc.Driver");
+                    connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
+                    stmt=connect.createStatement();
+		
+             
+			
+			
+			String sql = "SELECT * FROM staff WHERE St_ID ='" + id + "'";
+			
+			ResultSet rec = stmt.executeQuery(sql);
+                        
+			while((rec!=null) && (rec.next()))
+            {
+                int chid = rec.getInt("St_ID");
+               // String chpass = rec.getString("St_Password");
+                        if(chid == id ){
+                            ch = true;
+                            //setSt_Id(rec.getInt("St_ID"));
+                          //  System.out.println("st on select id = "+getSt_Id());
+                            
+                          //  setSt_Password(rec.getString("St_Password"));
+                        }
+                        else {
+                            ch=false;
+                        }
+            }
+             
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// Close
+		try {
+			if(connect != null){
+				stmt.close();
+				connect.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+                return  ch ;
+     }
 }
 
 

@@ -85,6 +85,11 @@ public class menu extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Science-Classroom-icon.png"))); // NOI18N
         jButton1.setText("เข้าเรียนคอร์สว่ายน้ำ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -177,6 +182,13 @@ public class menu extends javax.swing.JFrame {
                     close();
            //close();
     }//GEN-LAST:event_btn_Course_swimActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         learn_course cs1 =new learn_course();
+        cs1.setVisible(true);
+                    close();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

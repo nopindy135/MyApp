@@ -5,6 +5,9 @@
  */
 package com.java.MyApp;
 
+import static SystemNpruPool.ConnectDB.passwordDB;
+import static SystemNpruPool.ConnectDB.urlConnection;
+import static SystemNpruPool.ConnectDB.usernameDB;
 import SystemNpruPool.Couse;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
@@ -44,8 +47,7 @@ sorter.setSortKeys(null);
 		
 		try {
                     Class.forName("com.mysql.jdbc.Driver");
-                    String urlConnection = "jdbc:mysql://127.0.0.1/npru_pool?useUnicode=true&characterEncoding=UTF-8";
-                    connect = DriverManager.getConnection ( urlConnection, "root", "" );
+                    connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
                     stmt=connect.createStatement();
 			
 			String sql = "SELECT * FROM  user join register WHERE user.U_ID = register.U_ID ORDER BY user.U_ID ASC";
