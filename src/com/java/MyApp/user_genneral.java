@@ -77,6 +77,11 @@ public class user_genneral extends javax.swing.JFrame {
                 in_uidActionPerformed(evt);
             }
         });
+        in_uid.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                in_uidKeyReleased(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel2.setText("รหัสสมาชิก");
@@ -383,15 +388,15 @@ public class user_genneral extends javax.swing.JFrame {
 
     private void in_uidFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_in_uidFocusLost
         // TODO add your handling code here:
-        User uch= new User();
-        boolean checkuid =  uch.CheckU_Id(Integer.valueOf(in_uid.getText()));
-       if(checkuid == true){
-               txt_erroruid.setText("รหัสสมาชิกซ้ำ");
+     //   User uch= new User();
+      //  boolean checkuid =  uch.CheckU_Id(Integer.valueOf(in_uid.getText()));
+      // if(checkuid == true){
+        //       txt_erroruid.setText("รหัสสมาชิกซ้ำ");
     
-       }
-       if(checkuid == false){
-           txt_erroruid.setText("รหัสสมาชิกไม่ซ้ำ");
-       }
+   //    }
+     //  if(checkuid == false){
+       //    txt_erroruid.setText("รหัสสมาชิกไม่ซ้ำ");
+       
     }//GEN-LAST:event_in_uidFocusLost
 
     private void in_BirthdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_BirthdayActionPerformed
@@ -431,6 +436,19 @@ public class user_genneral extends javax.swing.JFrame {
            txt_errorcardid.setText("");
      }
     }//GEN-LAST:event_in_CardIdFocusLost
+
+    private void in_uidKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_in_uidKeyReleased
+        // TODO add your handling code here:
+        User uch= new User();
+        boolean checkuid =  uch.CheckU_Id(Integer.valueOf(in_uid.getText()));
+       if(checkuid == true){
+               txt_erroruid.setText("รหัสสมาชิกซ้ำ");
+    
+       }
+       if(checkuid == false){
+           txt_erroruid.setText("รหัสสมาชิกไม่ซ้ำ");
+       }
+    }//GEN-LAST:event_in_uidKeyReleased
 
     /**
      * @param args the command line arguments

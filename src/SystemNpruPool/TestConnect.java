@@ -13,6 +13,7 @@ public class TestConnect {
      public static  void main(String[] args){
          CheckConnetDB ccdb = new CheckConnetDB();
          ccdb.CheckConnect();
-         System.out.println(ccdb.CheckConnect1());
+         System.out.println(ccdb.CheckConnect1())
+                 ;
      }
 }

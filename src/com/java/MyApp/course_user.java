@@ -106,6 +106,12 @@ sorter.setSortKeys(null);
         jLabel6 = new javax.swing.JLabel();
         E_course = new javax.swing.JTextField();
         btn_update = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txt_id = new javax.swing.JLabel();
+        txt_fname = new javax.swing.JLabel();
+        txt_lname = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -167,6 +173,18 @@ sorter.setSortKeys(null);
             }
         });
 
+        jLabel3.setText("รหัสสมาชิก");
+
+        jLabel4.setText("ชื่อ");
+
+        jLabel5.setText("นามสกุล");
+
+        txt_id.setText("..");
+
+        txt_fname.setText("..");
+
+        txt_lname.setText("..");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -183,14 +201,18 @@ sorter.setSortKeys(null);
                                 .addComponent(jButton1)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
                             .addComponent(jLabel6)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel2)
-                                .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btn_update)
-                                    .addComponent(E_course, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_lname)
+                            .addComponent(txt_fname)
+                            .addComponent(txt_id)
+                            .addComponent(btn_update)
+                            .addComponent(E_course, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(139, 139, 139)
                         .addComponent(jLabel1)))
@@ -206,16 +228,28 @@ sorter.setSortKeys(null);
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, Short.MAX_VALUE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(E_course, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3)
+                            .addComponent(txt_id))
                         .addGap(18, 18, 18)
-                        .addComponent(btn_update, javax.swing.GroupLayout.PREFERRED_SIZE, 69, Short.MAX_VALUE)
-                        .addGap(152, 152, 152)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(txt_fname))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(txt_lname))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(E_course, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_update, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                        .addGap(17, 17, 17)))
                 .addContainerGap())
         );
 
@@ -255,7 +289,10 @@ sorter.setSortKeys(null);
     private void showcourseMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showcourseMouseMoved
         // TODO add your handling code here:
            DefaultTableModel model = (DefaultTableModel) showcourse.getModel();
-   U_id=(model.getValueAt(showcourse.getSelectedRow(),0).toString());
+  U_id=(model.getValueAt(showcourse.getSelectedRow(),0).toString());
+      txt_id.setText(model.getValueAt(showcourse.getSelectedRow(),0).toString());
+      txt_fname.setText(model.getValueAt(showcourse.getSelectedRow(),1).toString());
+      txt_lname.setText(model.getValueAt(showcourse.getSelectedRow(),2).toString());
   //  E_name.setText(model.getValueAt(showcourse.getSelectedRow(),1).toString());
    // E_lastname.setText(model.getValueAt(showcourse.getSelectedRow(),2).toString());
     E_course.setText(model.getValueAt(showcourse.getSelectedRow(),3).toString());
@@ -302,8 +339,14 @@ sorter.setSortKeys(null);
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable showcourse;
+    private javax.swing.JLabel txt_fname;
+    private javax.swing.JLabel txt_id;
+    private javax.swing.JLabel txt_lname;
     // End of variables declaration//GEN-END:variables
 }
