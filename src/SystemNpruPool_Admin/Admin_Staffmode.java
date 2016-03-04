@@ -34,13 +34,27 @@ public class Admin_Staffmode {
      public void ShowDetailStaff(){
     
     }
-    public void AddStaff(){
+    public void AddStaff(int id ,
+                         String password,
+                         String name,
+                         String age,
+                         String workday,
+                         String startday,
+                         String start_time,
+                         String end_time){
         
     }
-    public void EditStaff(){
+    public void EditStaff(int id ,
+                         String password,
+                         String name,
+                         String age,
+                         String workday,
+                         String startday,
+                         String start_time,
+                         String end_time){
         
     }
-    public void DeleteStaff(){
+    public void DeleteStaff(int id){
         
     }
 }

@@ -15,5 +15,17 @@ public class Admin_Coursemode {
     int c_age_limit;
     String c_hour_coues;
     String c_hour_of_coues;
-    
+    public void ShowDetailCourse(){
+    }
+    public void AddCourse(int id ,String name,int age_limit,
+            String hour_coues,String hour_of_coues){
+        
+    }
+    public void EditCourse(int id ,String name,int age_limit,
+            String hour_coues,String hour_of_coues){
+        
+    }
+    public void DeleteCourse(int id){
+        
+    }
 }

@@ -10,5 +10,29 @@ package SystemNpruPool_Admin;
  * @author Godonlyknows
  */
 public class Admin_Membermode {
+    int m_id;
+    int u_id;
+    String m_type;
+    String m_start;
+    String m_end;
+       public void ShowDetailMember(){
     
+    }
+    public void AddMember(int mid ,int uid,
+                                   
+                                    String type,
+                                    String start,
+                                    String end){
+        
+    }
+    public void EditMember(int mid ,int uid,
+                                   
+                                    String type,
+                                    String start,
+                                    String end){
+        
+    }
+    public void DeleteMember(int id){
+        
+    }
 }

@@ -59,19 +59,27 @@ public class Admin_Trainermode {
     public void sett_work_time(String work_time){
         t_work_date = work_time;
     }
-    
-        
-    
+
     public void ShowDetailTrainer(){
     
     }
-    public void AddTrainer(){
+    public void AddTrainer(int id ,String name,
+                                    int age,
+                                    String code,
+                                    String tel,
+                                    String work_date,
+                                    String work_time){
         
     }
-    public void EditTrainer(){
+    public void EditTrainer(int id ,String name,
+                                    int age,
+                                    String code,
+                                    String tel,
+                                    String work_date,
+                                    String work_time){
         
     }
-    public void DeleteTrainer(){
+    public void DeleteTrainer(int id){
         
     }
 }
