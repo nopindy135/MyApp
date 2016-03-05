@@ -5,6 +5,14 @@
  */
 package SystemNpruPool_Admin;
 
+import static SystemNpruPool.ConnectDB.passwordDB;
+import static SystemNpruPool.ConnectDB.urlConnection;
+import static SystemNpruPool.ConnectDB.usernameDB;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  *
  * @author Godonlyknows
@@ -69,6 +77,38 @@ public class Admin_Trainermode {
                                     String tel,
                                     String work_date,
                                     String work_time){
+        Connection connect = null;
+                Statement stmt = null;
+		
+		try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                     connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
+			stmt = connect.createStatement();
+			String sql = "INSERT INTO trainer " +
+                                     "(T_ID,T_Name,T_Age,T_Code,T_Tel,T_Work_Date,T_Work_Time) " + 
+                                     "VALUES ('" + id + "','" + name + "','" + age + "'"
+                                     + "" +
+                                     ",'" + code + "','" + tel + "','" + work_date + "','" + work_time + "') ";
+                         stmt.execute(sql);
+             
+                         System.out.println("Record User Inserted Successfully");
+             
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// Close
+		try {
+			if(connect != null){
+				stmt.close();
+				connect.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
         
     }
     public void EditTrainer(int id ,String name,
@@ -77,9 +117,73 @@ public class Admin_Trainermode {
                                     String tel,
                                     String work_date,
                                     String work_time){
+        Connection connect = null;
+                Statement stmt = null;
+		
+		try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
+			stmt = connect.createStatement();
+                        String sql = "UPDATE trainer " +
+					"SET T_ID = '" + id + "' " +
+                                "SET T_Name = '" + name + "' " +
+                                "SET T_Age = '" + age + "' " +
+                                "SET T_Code = '" + code + "' " +
+                                "SET T_Tel = '" + tel + "' " +
+                                   "SET T_Work_Date = '" + work_date + "' " +
+                                   "SET T_Work_Time = '" + work_time + "' " +
+					" WHERE T_ID = '" + id + "' ";
+             stmt.execute(sql);
+            
+             System.out.println("Record Update Member Successfully");
+             
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// Close
+		try {
+			if(connect != null){
+				stmt.close();
+				connect.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
         
     }
     public void DeleteTrainer(int id){
+         Connection connect = null;
+                Statement stmt = null;
+		
+		try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
+			stmt = connect.createStatement();
+                        String sql = "DELETE FROM trainer " +
+					" WHERE T_ID ='" + id + "' ";
+             stmt.execute(sql);
+            
+             System.out.println("Record Delete Member Successfully");
+             
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// Close
+		try {
+			if(connect != null){
+				stmt.close();
+				connect.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         
     }
 }
