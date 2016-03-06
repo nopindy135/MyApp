@@ -27,6 +27,9 @@ import javax.swing.table.TableRowSorter;
  */
 public class course_user extends javax.swing.JFrame {
 String U_id;
+     Connection connect = null;
+		Statement stmt = null;
+                String sql;
     /**
      * Creates new form course_user
      */
@@ -42,15 +45,14 @@ String U_id;
 //String expr = E_Uid.getText();
 //sorter.setRowFilter(RowFilter.regexFilter(expr));
 sorter.setSortKeys(null);
-                Connection connect = null;
-		Statement stmt = null;
+           
 		
 		try {
                     Class.forName("com.mysql.jdbc.Driver");
                     connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
                     stmt=connect.createStatement();
 			
-			String sql = "SELECT * FROM  user join register WHERE user.U_ID = register.U_ID ORDER BY user.U_ID ASC";
+			sql = "SELECT * FROM  user join register WHERE user.U_ID = register.U_ID ORDER BY user.U_ID ASC";
 			
 			ResultSet rec = stmt.executeQuery(sql);
 			int row = 0;
@@ -114,6 +116,21 @@ sorter.setSortKeys(null);
         txt_lname = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                formMouseMoved(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                formMouseReleased(evt);
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Swimming-52.png"))); // NOI18N
@@ -122,10 +139,7 @@ sorter.setSortKeys(null);
         showcourse.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         showcourse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "รหัสสมาชิก", "ชื่อ", "นามสกุล", "ประเภทคอร์ส"
@@ -167,6 +181,11 @@ sorter.setSortKeys(null);
         btn_update.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         btn_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/File-complete-icon.png"))); // NOI18N
         btn_update.setText("เสร็จสิ้น");
+        btn_update.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_updateMouseReleased(evt);
+            }
+        });
         btn_update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_updateActionPerformed(evt);
@@ -297,6 +316,125 @@ sorter.setSortKeys(null);
    // E_lastname.setText(model.getValueAt(showcourse.getSelectedRow(),2).toString());
     E_course.setText(model.getValueAt(showcourse.getSelectedRow(),3).toString());
     }//GEN-LAST:event_showcourseMouseMoved
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowActivated
+
+    private void formMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_formMouseReleased
+
+    private void btn_updateMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_updateMouseReleased
+        // TODO add your handling code here:เมื่อปล่อยmouse หลังจากคลิก
+          DefaultTableModel model = (DefaultTableModel)showcourse.getModel();
+	
+        	//Header Sort
+		TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel> (model);
+		showcourse.setRowSorter(sorter);
+        
+
+//String expr = E_Uid.getText();
+//sorter.setRowFilter(RowFilter.regexFilter(expr));
+sorter.setSortKeys(null);
+               
+			
+		
+		try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
+                    stmt=connect.createStatement();
+			
+			sql = "SELECT * FROM  user join register WHERE user.U_ID = register.U_ID ORDER BY user.U_ID ASC";
+			
+			ResultSet rec = stmt.executeQuery(sql);
+			int row = 0;
+			while((rec!=null) && (rec.next()))
+            {			
+				
+				model.setValueAt(rec.getString("U_ID"), row, 0);
+				model.setValueAt(rec.getString("U_Firstname"), row, 1);
+				model.setValueAt(rec.getString("U_Lastname"), row, 2);
+				model.setValueAt(rec.getString("register.C_ID"), row, 3);
+			//	model.setValueAt(rec.getFloat("Budget"), row, 4);
+			//	model.setValueAt(rec.getFloat("Used"), row, 5);
+                        
+				row++;
+            }
+
+			rec.close();
+             
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, e.getMessage());
+			e.printStackTrace();
+		}
+		
+		try {
+			if(stmt != null) {
+				stmt.close();
+				connect.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }//GEN-LAST:event_btn_updateMouseReleased
+
+    private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
+        // TODO add your handling code here://mouse ขยับ
+        System.out.println("mousemove");
+          DefaultTableModel model = (DefaultTableModel)showcourse.getModel();
+	
+        	//Header Sort
+		TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel> (model);
+		showcourse.setRowSorter(sorter);
+//String expr = E_Uid.getText();
+//sorter.setRowFilter(RowFilter.regexFilter(expr));
+                sorter.setSortKeys(null);
+               
+			
+		
+		try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
+                    stmt=connect.createStatement();
+			
+			sql = "SELECT * FROM  user join register WHERE user.U_ID = register.U_ID ORDER BY user.U_ID ASC";
+			
+			ResultSet rec = stmt.executeQuery(sql);
+			int row = 0;
+			while((rec!=null) && (rec.next()))
+            {			
+				model.setValueAt(rec.getString("U_ID"), row, 0);
+				model.setValueAt(rec.getString("U_Firstname"), row, 1);
+				model.setValueAt(rec.getString("U_Lastname"), row, 2);
+				model.setValueAt(rec.getString("register.C_ID"), row, 3);
+			//	model.setValueAt(rec.getFloat("Budget"), row, 4);
+			//	model.setValueAt(rec.getFloat("Used"), row, 5);
+                        
+				row++;
+            }
+
+			rec.close();
+             
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, e.getMessage());
+			e.printStackTrace();
+		}
+		
+		try {
+			if(stmt != null) {
+				stmt.close();
+				connect.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }//GEN-LAST:event_formMouseMoved
 
     /**
      * @param args the command line arguments
