@@ -134,7 +134,15 @@ sorter.setSortKeys(null);
             new String [] {
                 "รหัสสมาชิก", "ชื่อ", "นามสกุล", "ประเภทคอร์ส"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         showcourse.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         showcourse.setRequestFocusEnabled(false);
         showcourse.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
