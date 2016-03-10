@@ -66,16 +66,6 @@ public class course_swim extends javax.swing.JFrame {
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        out_uid = new javax.swing.JLabel();
-        out_ufirstname = new javax.swing.JLabel();
-        out_ulastname = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        out_ubirthday = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        out_uage = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         out_pricecourse = new javax.swing.JLabel();
@@ -83,42 +73,23 @@ public class course_swim extends javax.swing.JFrame {
         btn_menu = new javax.swing.JButton();
         in_c1 = new javax.swing.JButton();
         in_c2 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        out_uid = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        out_ufirstname = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        out_ulastname = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        out_ubirthday = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        out_uage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Swimming-52.png"))); // NOI18N
         jLabel1.setText("ชำระค่าสมัครเรียนคอร์สว่ายน้ำ");
-
-        jLabel2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel2.setText("ชื่อ");
-
-        jLabel3.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel3.setText("นามสกุล");
-
-        jLabel4.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel4.setText("รหัสสมาชิก");
-
-        out_uid.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        out_uid.setText(".......................");
-
-        out_ufirstname.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        out_ufirstname.setText("......................");
-
-        out_ulastname.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        out_ulastname.setText(".............................");
-
-        jLabel5.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel5.setText("วัน / เดือน / ปี เกิด");
-
-        out_ubirthday.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        out_ubirthday.setText(".........................");
-
-        jLabel8.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel8.setText("อายุ");
-
-        out_uage.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        out_uage.setText(".........................");
 
         jLabel12.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel12.setText("กรุณาเลือคอร์สที่ต้องการ");
@@ -161,6 +132,83 @@ public class course_swim extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        jLabel4.setText("รหัสสมาชิก");
+
+        out_uid.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_uid.setText("......................");
+
+        jLabel2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        jLabel2.setText("ชื่อ");
+
+        out_ufirstname.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_ufirstname.setText("......................");
+
+        jLabel3.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        jLabel3.setText("นามสกุล");
+
+        out_ulastname.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_ulastname.setText(".......................");
+
+        jLabel5.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        jLabel5.setText("วัน / เดือน / ปี เกิด");
+
+        out_ubirthday.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_ubirthday.setText(".......................");
+
+        jLabel8.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        jLabel8.setText("อายุ");
+
+        out_uage.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_uage.setText(".........................");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(out_uid)
+                    .addComponent(out_ufirstname)
+                    .addComponent(out_ulastname)
+                    .addComponent(out_ubirthday)
+                    .addComponent(out_uage))
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(out_uid))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(out_ufirstname))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(out_ulastname))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(out_ubirthday))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(out_uage))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -168,7 +216,7 @@ public class course_swim extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
+                        .addGap(103, 103, 103)
                         .addComponent(jLabel13)
                         .addGap(18, 18, 18)
                         .addComponent(out_pricecourse))
@@ -180,73 +228,41 @@ public class course_swim extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(49, 49, 49)
-                                .addComponent(out_uid))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLabel8)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(out_uage))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(out_ubirthday)))
                             .addComponent(jLabel12)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(in_c1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(in_c2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel1)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(out_ufirstname)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel3)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(out_ulastname))))))
-                .addContainerGap(33, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(in_c2)
+                            .addComponent(in_c1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(out_uid))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(out_ufirstname)
-                    .addComponent(jLabel3)
-                    .addComponent(out_ulastname))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(out_ubirthday))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(out_uage))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(4, 4, 4)
                 .addComponent(in_c1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(13, 13, 13)
                 .addComponent(in_c2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(out_pricecourse)
                     .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_course_swim))
-                .addGap(112, 112, 112))
+                .addGap(19, 19, 19))
         );
 
         getAccessibleContext().setAccessibleName("สมัครเรียนคอร์สเรียนว่ายน้ำ");
@@ -378,6 +394,7 @@ public class course_swim extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel out_pricecourse;
     private javax.swing.JLabel out_uage;
     private javax.swing.JLabel out_ubirthday;

@@ -104,16 +104,6 @@ sorter.setSortKeys(null);
         jScrollPane1 = new javax.swing.JScrollPane();
         showcourse = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        E_course = new javax.swing.JTextField();
-        btn_update = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        txt_id = new javax.swing.JLabel();
-        txt_fname = new javax.swing.JLabel();
-        txt_lname = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -165,77 +155,23 @@ sorter.setSortKeys(null);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
-        jLabel2.setText("แก้ไขข้อมูล");
-
-        jLabel6.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel6.setText("ประเภทคอร์ส");
-
-        E_course.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        E_course.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                E_courseActionPerformed(evt);
-            }
-        });
-
-        btn_update.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        btn_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/File-complete-icon.png"))); // NOI18N
-        btn_update.setText("เสร็จสิ้น");
-        btn_update.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_updateMouseReleased(evt);
-            }
-        });
-        btn_update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_updateActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("รหัสสมาชิก");
-
-        jLabel4.setText("ชื่อ");
-
-        jLabel5.setText("นามสกุล");
-
-        txt_id.setText("..");
-
-        txt_fname.setText("..");
-
-        txt_lname.setText("..");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(171, 171, 171)
-                                .addComponent(jButton1)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_lname)
-                            .addComponent(txt_fname)
-                            .addComponent(txt_id)
-                            .addComponent(btn_update)
-                            .addComponent(E_course, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(139, 139, 139)
-                        .addComponent(jLabel1)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addComponent(jButton1)))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,32 +179,9 @@ sorter.setSortKeys(null);
                 .addGap(6, 6, 6)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txt_id))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txt_fname))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txt_lname))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(E_course, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_update, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                        .addGap(17, 17, 17)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
                 .addContainerGap())
         );
 
@@ -286,35 +199,16 @@ sorter.setSortKeys(null);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void E_courseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E_courseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_E_courseActionPerformed
-
-    private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
-        // TODO add your handling code here:
-       // IMessage.setText("");
-        //DefaultTableModel model =(DefaultTableModel) showcourse.getModel();
-   
-         //   model.setValueAt(E_Uid.getText(),showcourse.getSelectedRow(),0);
-          //  model.setValueAt(E_name.getText(),showcourse.getSelectedRow(),1);
-         //   model.setValueAt(E_lastname.getText(),showcourse.getSelectedRow(),2);
-          //  model.setValueAt(E_course.getText(),showcourse.getSelectedRow(),3);
-          Couse c = new Couse();
-       
-        c.update_couse(Integer.valueOf(U_id),Integer.valueOf(E_course.getText()));
-        
-    }//GEN-LAST:event_btn_updateActionPerformed
-
     private void showcourseMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showcourseMouseMoved
         // TODO add your handling code here:
            DefaultTableModel model = (DefaultTableModel) showcourse.getModel();
   U_id=(model.getValueAt(showcourse.getSelectedRow(),0).toString());
-      txt_id.setText(model.getValueAt(showcourse.getSelectedRow(),0).toString());
-      txt_fname.setText(model.getValueAt(showcourse.getSelectedRow(),1).toString());
-      txt_lname.setText(model.getValueAt(showcourse.getSelectedRow(),2).toString());
+    //  txt_id.setText(model.getValueAt(showcourse.getSelectedRow(),0).toString());
+    //  txt_fname.setText(model.getValueAt(showcourse.getSelectedRow(),1).toString());
+    //  txt_lname.setText(model.getValueAt(showcourse.getSelectedRow(),2).toString());
   //  E_name.setText(model.getValueAt(showcourse.getSelectedRow(),1).toString());
    // E_lastname.setText(model.getValueAt(showcourse.getSelectedRow(),2).toString());
-    E_course.setText(model.getValueAt(showcourse.getSelectedRow(),3).toString());
+   // E_course.setText(model.getValueAt(showcourse.getSelectedRow(),3).toString());
     }//GEN-LAST:event_showcourseMouseMoved
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -325,62 +219,6 @@ sorter.setSortKeys(null);
         // TODO add your handling code here:
         
     }//GEN-LAST:event_formMouseReleased
-
-    private void btn_updateMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_updateMouseReleased
-        // TODO add your handling code here:เมื่อปล่อยmouse หลังจากคลิก
-          DefaultTableModel model = (DefaultTableModel)showcourse.getModel();
-	
-        	//Header Sort
-		TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel> (model);
-		showcourse.setRowSorter(sorter);
-        
-
-//String expr = E_Uid.getText();
-//sorter.setRowFilter(RowFilter.regexFilter(expr));
-sorter.setSortKeys(null);
-               
-			
-		
-		try {
-                    Class.forName("com.mysql.jdbc.Driver");
-                    connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
-                    stmt=connect.createStatement();
-			
-			sql = "SELECT * FROM  user join register WHERE user.U_ID = register.U_ID ORDER BY user.U_ID ASC";
-			
-			ResultSet rec = stmt.executeQuery(sql);
-			int row = 0;
-			while((rec!=null) && (rec.next()))
-            {			
-				
-				model.setValueAt(rec.getString("U_ID"), row, 0);
-				model.setValueAt(rec.getString("U_Firstname"), row, 1);
-				model.setValueAt(rec.getString("U_Lastname"), row, 2);
-				model.setValueAt(rec.getString("register.C_ID"), row, 3);
-			//	model.setValueAt(rec.getFloat("Budget"), row, 4);
-			//	model.setValueAt(rec.getFloat("Used"), row, 5);
-                        
-				row++;
-            }
-
-			rec.close();
-             
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(null, e.getMessage());
-			e.printStackTrace();
-		}
-		
-		try {
-			if(stmt != null) {
-				stmt.close();
-				connect.close();
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }//GEN-LAST:event_btn_updateMouseReleased
 
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
         // TODO add your handling code here://mouse ขยับ
@@ -472,19 +310,9 @@ sorter.setSortKeys(null);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField E_course;
-    private javax.swing.JButton btn_update;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable showcourse;
-    private javax.swing.JLabel txt_fname;
-    private javax.swing.JLabel txt_id;
-    private javax.swing.JLabel txt_lname;
     // End of variables declaration//GEN-END:variables
 }
