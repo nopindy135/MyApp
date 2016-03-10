@@ -9,8 +9,11 @@ import SystemNpruPool.CheckConnetDB;
 import SystemNpruPool.Staff;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
+import java.io.InputStream;
 import javax.swing.JOptionPane;
 import sun.applet.resources.MsgAppletViewer;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 /**
  *
@@ -22,10 +25,18 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
+        
+        
+        
         initComponents();
+        
+        
+        
         CheckConnetDB ccdb = new CheckConnetDB();
         if(ccdb.CheckConnect1() == true){
                 txt_server.setText("Online");}
+                    
+        
         else{
                 txt_server.setText("Offline");}
                     }
@@ -33,6 +44,18 @@ public class Login extends javax.swing.JFrame {
         WindowEvent winclose = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winclose);
     }
+    public void AudioInputStream(String address) {
+        try {
+
+            InputStream in = this.getClass().getResourceAsStream(address);
+            AudioStream au = new AudioStream(in);
+            AudioPlayer.player.start(au);
+
+        } catch (Exception e) {
+            
+        }
+    }
+    
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -227,7 +250,8 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     
+     user sn = new user();
+        sn.AudioInputStream("/image/imperial_march.wav");
        //String password = in_password.
        if(in_stid.getText().equals("") || in_password.getPassword().equals("")){
              JOptionPane.showMessageDialog(null,
@@ -250,7 +274,8 @@ public class Login extends javax.swing.JFrame {
     
         form2.setVisible(true);
         close();
-      
+        
+        
         
  }else {
       System.out.print("false");

@@ -27,6 +27,9 @@ public class CheckConnetDB {
 
                 
     }
+    
+    
+    
     	public  void CheckConnect(){
 		Connection connect = null;
                 Statement stmt = null;

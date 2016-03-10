@@ -8,6 +8,9 @@ package com.java.MyApp;
 import SystemNpruPool.Staff;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
+import java.io.InputStream;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 /**
  *
@@ -16,20 +19,32 @@ import java.awt.event.WindowEvent;
 public class user extends javax.swing.JFrame {
 Staff st = new Staff();
 
-    /**
-     * Creates new form user
-     */
+        
     public user() {
         initComponents();
         System.out.println("st id on user befo = "+st.getSt_Id());
         st.CheckStaff(st.getSt_Id());
           System.out.println("st id on user af = "+st.getSt_Id());
+          
+          
+         
     }
       public void close(){
         WindowEvent winclose = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winclose);
     }
+    
+public void AudioInputStream(String address) {
+        try {
 
+            InputStream in = this.getClass().getResourceAsStream(address);
+            AudioStream au = new AudioStream(in);
+            AudioPlayer.player.start(au);
+
+        } catch (Exception e) {
+            
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -278,7 +293,8 @@ Staff st = new Staff();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new user().setVisible(true);
+                
+                
             }
         });
     }
