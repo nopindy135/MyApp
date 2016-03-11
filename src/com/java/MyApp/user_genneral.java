@@ -59,14 +59,14 @@ public class user_genneral extends javax.swing.JFrame {
         txt_errortel = new javax.swing.JLabel();
         txt_errorcardid = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        in_type = new javax.swing.JComboBox<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("TH Sarabun New", 0, 20)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Actions-user-group-new-icon.png"))); // NOI18N
-        jLabel1.setText("ประเภทผู้ใช้งาน : บุคคลทั่วไป");
+        jLabel1.setText("เพิ่มผู้เข้าใช้งาน : ");
 
         in_uid.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         in_uid.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -191,11 +191,11 @@ public class user_genneral extends javax.swing.JFrame {
 
         jLabel9.setText("ประเภทสมาชิก");
 
-        jComboBox1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "บุคคลภายนอก", "นิสิต - นักศึกษา", "บุคลากร - อาจารย์" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        in_type.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        in_type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "บุคคลภายนอก", "นิสิต - นักศึกษา", "บุคลากร - อาจารย์" }));
+        in_type.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                in_typeActionPerformed(evt);
             }
         });
 
@@ -236,7 +236,7 @@ public class user_genneral extends javax.swing.JFrame {
                                             .addComponent(txt_errortel)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(in_type, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(in_CardId, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
                                             .addComponent(in_Firstname, javax.swing.GroupLayout.Alignment.LEADING))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,7 +268,7 @@ public class user_genneral extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(in_type, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -324,6 +324,7 @@ public class user_genneral extends javax.swing.JFrame {
         String cUbirthday="";
         String cUtel="";
         String cUaddress="";
+        int type =1;
       //  java.util.Date d = in_Birthday.getDate();
 
             String in_birth = String.valueOf(in_Birthday.getText());
@@ -358,6 +359,7 @@ public class user_genneral extends javax.swing.JFrame {
         if(in_Address.getText().equals("")){
             cUaddress = "ที่อยู่";
         }
+        
         String allnull ="\n"+cUid+"\n"
                 +cUcardid+"\n"
                 +cUfirstname+"\n"
@@ -373,14 +375,26 @@ public class user_genneral extends javax.swing.JFrame {
     }
      
      else{
+            if(in_type.getSelectedItem().equals("บุคคลภายนอก")){
+                type=1;
+            }
+            else if(in_type.getSelectedItem().equals("นิสิต - นักศึกษา")){
+           type=2;
+     }
+            else if(in_type.getSelectedItem().equals("บุคลากร - อาจารย์")){
+           type=3;
+     }
            check = 1;
              menu m = new menu();
                     m.setVisible(true);
-        us.InsertUser(Integer.valueOf(in_uid.getText()),in_Firstname.getText(),in_Lastname.getText(),in_Address.getText(),String.valueOf(in_Birthday.getText()),in_CardId.getText(),1,in_Tel.getText());
+        us.InsertUser(Integer.valueOf(in_uid.getText()),in_Firstname.getText(),in_Lastname.getText(),in_Address.getText(),String.valueOf(in_Birthday.getText()),in_CardId.getText(),type,in_Tel.getText());
          JOptionPane.showMessageDialog(null,
 	    "บันทึกข้อมูลสำเร็จ.",
 	    "",
 	    JOptionPane.WARNING_MESSAGE);
+            user form5 = new user();
+        form5.setVisible(true);
+        close();
        
      }
          
@@ -468,9 +482,9 @@ public class user_genneral extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_in_uidKeyReleased
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void in_typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_typeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_in_typeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -514,10 +528,10 @@ public class user_genneral extends javax.swing.JFrame {
     private javax.swing.JTextField in_Firstname;
     private javax.swing.JTextField in_Lastname;
     private javax.swing.JFormattedTextField in_Tel;
+    private javax.swing.JComboBox<String> in_type;
     private javax.swing.JTextField in_uid;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

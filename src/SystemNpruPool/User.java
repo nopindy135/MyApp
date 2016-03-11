@@ -24,7 +24,7 @@ public class User extends U_System{
    public String u_Lastname;
    public String u_Address ; 
    public String u_Birthday ;
-   public int u_Age;
+   public static int u_Age;
    public String u_CardId ;
    public int u_Type ;
    public  String u_Tel;
@@ -197,6 +197,7 @@ stmt=connect.createStatement();
                             setU_Type(rec.getInt("U_Type"));
                             setU_Tel(rec.getString("U_Tel"));
                             setU_Age(rec.getInt("U_Age"));
+                            
                            //     System.out.print("after"+u_Firstname);
                         }
                         else {

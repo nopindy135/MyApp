@@ -124,6 +124,7 @@ public void close(){
         // TODO add your handling code here:
         User us = new User();
         Staff st =new Staff();
+        
           System.out.println("St id on befo member= "+st.getSt_Id());
         st.CheckStaff(st.getSt_Id());
         boolean chu = us.CheckUser(Integer.valueOf(in_uid.getText()));

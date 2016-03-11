@@ -29,6 +29,12 @@ public class course_swim extends javax.swing.JFrame {
     public course_swim() {
         initComponents();
         u.CheckUser(u.getU_Id());
+        if(u.getU_Age() > 12){
+            in_c1.setVisible(false);
+        }
+        else if(u.getU_Age() < 12){
+            in_c2.setVisible(false);
+        }
              System.out.println("u id on  swim_pool= "+u.getU_Id());
                 System.out.println("st id on befor swim_pool= "+st.getSt_Id());
            st.CheckStaff(st.getSt_Id());
