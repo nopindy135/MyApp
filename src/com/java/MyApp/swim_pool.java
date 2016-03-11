@@ -20,12 +20,28 @@ import java.util.Calendar;
 public class swim_pool extends javax.swing.JFrame {
         User u =new User();
         Staff st =new Staff();
+        int pay =0;
     /**
      * Creates new form swim_pool
      */
     public swim_pool() {
         initComponents();
            u.CheckUser(u.getU_Id());
+           if(u.getU_Type() == 1){
+               in_pmoney.setText("50 บาท");
+               pay=50;
+           }
+           else if(u.getU_Type() == 2){
+                in_pmoney.setText("30 บาท");
+               pay=30;
+               
+           }
+            else if(u.getU_Type() == 3){
+                 in_pmoney.setText("30 บาท");
+               pay=30;
+               
+           }
+   
              System.out.println("u id on  swim_pool= "+u.getU_Id());
                 System.out.println("st id on befor swim_pool= "+st.getSt_Id());
            st.CheckStaff(st.getSt_Id());
@@ -71,7 +87,7 @@ public class swim_pool extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         out_utype = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        in_pmoney = new javax.swing.JComboBox();
+        in_pmoney = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -136,7 +152,7 @@ public class swim_pool extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel15.setText("ค่าบริการ");
 
-        in_pmoney.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30 บาท", "50 บาท" }));
+        in_pmoney.setText("ค่าบริการ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -160,7 +176,7 @@ public class swim_pool extends javax.swing.JFrame {
                     .addComponent(out_ulastname)
                     .addComponent(out_ubirthday)
                     .addComponent(out_utype)
-                    .addComponent(in_pmoney, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(in_pmoney))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -193,7 +209,7 @@ public class swim_pool extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(in_pmoney, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(in_pmoney))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -247,12 +263,10 @@ public class swim_pool extends javax.swing.JFrame {
         hu.setVisible(true);
         //int money;
         
-        if(in_pmoney.getSelectedItem().equals("30 บาท")){
-    pm.InsertPaymet(30, currentDate, currentDate1,"เงินสด",Integer.valueOf(out_uid.getText()),st.getSt_Id());
-        }
-        else if(in_pmoney.getSelectedItem().equals("50 บาท")){
-         pm.InsertPaymet(50, currentDate, currentDate1,"เงินสด",Integer.valueOf(out_uid.getText()),st.getSt_Id());
-        }
+    
+            System.out.println(pay+currentDate+currentDate1+"เงินสด"+Integer.valueOf(out_uid.getText())+st.getSt_Id());
+         pm.InsertPaymet(pay, currentDate, currentDate1,"เงินสด",Integer.valueOf(out_uid.getText()),st.getSt_Id());
+        
             close();
     }//GEN-LAST:event_btn_history_useActionPerformed
 
@@ -301,7 +315,7 @@ public class swim_pool extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_history_use;
     private javax.swing.JButton btn_user;
-    private javax.swing.JComboBox in_pmoney;
+    private javax.swing.JLabel in_pmoney;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;

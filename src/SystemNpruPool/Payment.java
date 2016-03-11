@@ -38,7 +38,7 @@ public class Payment {
                                 + "" +
 					",'" + time + "','" + type + "','" + uid + "','" + stid + "') ";
                          stmt.execute(sql);
-             
+             System.out.printf("insert payment Suc");
                          
              
 		} catch (Exception e) {
