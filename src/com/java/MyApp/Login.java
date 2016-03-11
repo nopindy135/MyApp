@@ -10,10 +10,19 @@ import SystemNpruPool.Staff;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.io.InputStream;
+import static java.lang.Thread.sleep;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import sun.applet.resources.MsgAppletViewer;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,14 +33,49 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    public void CurrentDate(){
+         
+        
+        Thread clock = new Thread(){
+            public void run(){
+                for(;;){
+                    CheckConnetDB ccdb = new CheckConnetDB();
+                    if(ccdb.CheckConnect1() ==true){
+                    txt_server.setText("Online");
+                    }else{
+                         txt_server.setText("Offline");
+                    }
+                    Calendar cal = new GregorianCalendar();
+                    int month = cal.get(Calendar.MONTH);
+        int year = cal.get(Calendar.YEAR);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        int second = cal.get(Calendar.SECOND);
+        int minute = cal.get(Calendar.MINUTE);
+        int hour = cal.get(Calendar.HOUR);
+        date_txt.setText("Date"+year+"/"+(month+1)+"/"+day);
+        txt_time.setText("Time "+hour+":"+(minute)+":"+second);
+                   // System.out.println("p");
+                    try{
+                    sleep(1000);
+                  
+                }   catch (InterruptedException ex) {
+                        Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+            }
+        }
+                
+                };
+                clock.start();
+                }
+                     
     public Login() {
         
-        
+       
         
         initComponents();
         
         
-        
+         CurrentDate();
         CheckConnetDB ccdb = new CheckConnetDB();
         if(ccdb.CheckConnect1() == true){
                 txt_server.setText("Online");}
@@ -77,6 +121,8 @@ public class Login extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         txt_server = new javax.swing.JLabel();
+        txt_time = new javax.swing.JLabel();
+        date_txt = new javax.swing.JLabel();
 
         jLabel8.setText("jLabel8");
 
@@ -198,7 +244,7 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setText("Server :");
 
         txt_server.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        txt_server.setText("..");
+        txt_server.setText("OFFLINE");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -209,7 +255,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_server)
-                .addGap(0, 22, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,31 +264,49 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(txt_server))
         );
 
+        txt_time.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        txt_time.setText("TIME");
+
+        date_txt.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        date_txt.setText("DATE");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(175, 175, 175)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(171, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(date_txt)
+                    .addComponent(txt_time))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addContainerGap(167, Short.MAX_VALUE))))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(date_txt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_time)))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -328,6 +392,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel date_txt;
     private javax.swing.JPasswordField in_password;
     private javax.swing.JTextField in_stid;
     private javax.swing.JButton jButton1;
@@ -344,6 +409,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel txt_StaffPassword;
     private javax.swing.JLabel txt_Staffid;
     private javax.swing.JLabel txt_server;
+    private javax.swing.JLabel txt_time;
     // End of variables declaration//GEN-END:variables
 
   
