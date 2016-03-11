@@ -41,23 +41,21 @@
                   <Component id="date_txt" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="txt_time" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="167" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel2" min="-2" pref="300" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -65,21 +63,27 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="date_txt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txt_time" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="date_txt" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="txt_time" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="19" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -102,7 +106,6 @@
                   <EmptySpace pref="31" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jButton1" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
-                      <Component id="jLabel2" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -119,7 +122,7 @@
                       <Component id="txt_Staffid" min="-2" max="-2" attributes="0"/>
                       <Component id="txt_StaffPassword" min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
@@ -161,8 +164,6 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jButton1" min="-2" pref="81" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -223,14 +224,6 @@
               <Font name="TH Sarabun New" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value=".."/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="TH Sarabun New" size="20" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&#xe23;&#xe30;&#xe1a;&#xe1a;&#xe1a;&#xe23;&#xe34;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe23;&#xe30;&#xe27;&#xe48;&#xe32;&#xe22;&#xe19;&#xe49;&#xe33; &#xe21;&#xe2b;&#xe32;&#xe27;&#xe34;&#xe17;&#xe22;&#xe32;&#xe25;&#xe31;&#xe22;&#xe23;&#xe32;&#xe0a;&#xe20;&#xe31;&#xe0f;&#xe19;&#xe04;&#xe23;&#xe1b;&#xe10;&#xe21;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -316,6 +309,14 @@
           <Font name="TH Sarabun New" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="DATE"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="TH Sarabun New" size="20" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#xe23;&#xe30;&#xe1a;&#xe1a;&#xe1a;&#xe23;&#xe34;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe23;&#xe30;&#xe27;&#xe48;&#xe32;&#xe22;&#xe19;&#xe49;&#xe33; &#xe21;&#xe2b;&#xe32;&#xe27;&#xe34;&#xe17;&#xe22;&#xe32;&#xe25;&#xe31;&#xe22;&#xe23;&#xe32;&#xe0a;&#xe20;&#xe31;&#xe0f;&#xe19;&#xe04;&#xe23;&#xe1b;&#xe10;&#xe21;"/>
       </Properties>
     </Component>
   </SubComponents>
