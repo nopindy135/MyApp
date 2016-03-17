@@ -59,9 +59,9 @@ sorter.setSortKeys(null);
 			while((rec!=null) && (rec.next()))
             {			
 				model.addRow(new Object[0]);
-				model.setValueAt(rec.getString("U_ID"), row, 0);
-				model.setValueAt(rec.getString("U_Firstname"), row, 1);
-				model.setValueAt(rec.getString("U_Lastname"), row, 2);
+				model.setValueAt(rec.getString("user.U_ID"), row, 0);
+				model.setValueAt(rec.getString("user.U_Firstname"), row, 1);
+				model.setValueAt(rec.getString("user.U_Lastname"), row, 2);
 				model.setValueAt(rec.getString("register.C_ID"), row, 3);
 			//	model.setValueAt(rec.getFloat("Budget"), row, 4);
 			//	model.setValueAt(rec.getFloat("Used"), row, 5);
@@ -109,10 +109,10 @@ sorter.setSortKeys(null);
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        type_s = new javax.swing.JComboBox<String>();
+        in_keys = new javax.swing.JTextField();
+        btn_s = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -202,16 +202,21 @@ sorter.setSortKeys(null);
         jLabel4.setFont(new java.awt.Font("TH Sarabun New", 0, 16)); // NOI18N
         jLabel4.setText("ค้นหาข้อมูลจาก");
 
-        jComboBox1.setFont(new java.awt.Font("TH Sarabun New", 0, 16)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "รหัสสมาชิก", "ชื่อ", "นามสกุล", "ประเภทคอร์ส" }));
-
         jLabel5.setFont(new java.awt.Font("TH Sarabun New", 0, 16)); // NOI18N
         jLabel5.setText("กรอกข้อมูลที่ต้องการ");
 
-        jTextField1.setFont(new java.awt.Font("TH Sarabun New", 0, 16)); // NOI18N
+        type_s.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        type_s.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "รหัสสมาชิก", "ชื่อ", "นามสกุล", "ประเภทคอร์ส", " " }));
 
-        jButton2.setFont(new java.awt.Font("TH Sarabun New", 0, 16)); // NOI18N
-        jButton2.setText("OK");
+        in_keys.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+
+        btn_s.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        btn_s.setText("ค้นหา");
+        btn_s.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_sActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -219,31 +224,33 @@ sorter.setSortKeys(null);
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel1)
-                            .addGap(41, 41, 41)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(163, 163, 163)
-                                .addComponent(jButton1))))
+                                .addContainerGap()
+                                .addComponent(jLabel1)
+                                .addGap(41, 41, 41)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(43, 43, 43)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(163, 163, 163)
+                                    .addComponent(jButton1))))
+                        .addGap(0, 48, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
+                        .addComponent(type_s, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                        .addComponent(in_keys, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_s)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,13 +259,14 @@ sorter.setSortKeys(null);
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(21, 21, 21)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(type_s, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(in_keys, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_s)))
                 .addGap(19, 19, 19)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -303,57 +311,84 @@ sorter.setSortKeys(null);
 
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
         // TODO add your handling code here://mouse ขยับ
-        System.out.println("mousemove");
-          DefaultTableModel model = (DefaultTableModel)showcourse.getModel();
-	
-        	//Header Sort
-		TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel> (model);
-		showcourse.setRowSorter(sorter);
-//String expr = E_Uid.getText();
-//sorter.setRowFilter(RowFilter.regexFilter(expr));
-                sorter.setSortKeys(null);
-               
-			
-		
-		try {
-                    Class.forName("com.mysql.jdbc.Driver");
-                    connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
-                    stmt=connect.createStatement();
-			
-			sql = "SELECT * FROM  user join register WHERE user.U_ID = register.U_ID ORDER BY user.U_ID ASC";
-			
-			ResultSet rec = stmt.executeQuery(sql);
-			int row = 0;
-			while((rec!=null) && (rec.next()))
-            {			
-				model.setValueAt(rec.getString("U_ID"), row, 0);
+     
+    }//GEN-LAST:event_formMouseMoved
+
+    private void btn_sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sActionPerformed
+        // TODO add your handling code here:
+        String type = "" ;
+        String key  =  "";
+        if(type_s.getSelectedItem().equals("รหัสสมาชิก")){
+            type="U_ID";
+            
+            key = "SELECT * FROM  user join register WHERE user.U_ID = register.U_ID and user."+type+" = '" + Integer.valueOf(in_keys.getText()) + "' ORDER BY user.U_ID ASC";
+        }
+        else if(type_s.getSelectedItem().equals("ชื่อ")){
+            type="U_Firstname";
+                      key = "SELECT * FROM  user join register WHERE user.U_ID = register.U_ID and user."+type+" = '" + in_keys.getText() + "' ORDER BY user.U_ID ASC";
+
+
+        }
+        else if(type_s.getSelectedItem().equals("นามสกุล")){
+            type="U_Lastname";
+            key = "SELECT * FROM  user join register WHERE user.U_ID = register.U_ID and user."+type+" = '" + in_keys.getText() + "' ORDER BY user.U_ID ASC";
+
+        }
+        else if(type_s.getSelectedItem().equals("ประเภทคอร์ส")){
+            type="C_ID";
+           key = "SELECT * FROM  user join register WHERE user.U_ID = register.U_ID and register."+type+" = '" + in_keys.getText() + "' ORDER BY user.U_ID ASC";
+
+        }
+        DefaultTableModel model = (DefaultTableModel)showcourse.getModel();
+        model.setRowCount(0);
+        //Header Sort
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel> (model);
+        showcourse.setRowSorter(sorter);
+        Connection connect = null;
+        Statement stmt = null;
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
+
+            stmt=connect.createStatement();
+
+            String sql =key;
+
+            ResultSet rec = stmt.executeQuery(sql);
+            int row = 0;
+            while((rec!=null) && (rec.next()))
+            {
+
+                model.addRow(new Object[0]);
+               model.setValueAt(rec.getString("U_ID"), row, 0);
 				model.setValueAt(rec.getString("U_Firstname"), row, 1);
 				model.setValueAt(rec.getString("U_Lastname"), row, 2);
 				model.setValueAt(rec.getString("register.C_ID"), row, 3);
-			//	model.setValueAt(rec.getFloat("Budget"), row, 4);
-			//	model.setValueAt(rec.getFloat("Used"), row, 5);
-                        
-				row++;
+                //model.setValueAt(st.getSt_Id(), row, 5);
+                //	model.setValueAt(rec.getFloat("Used"), row, 5);
+                row++;
             }
 
-			rec.close();
-             
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(null, e.getMessage());
-			e.printStackTrace();
-		}
-		
-		try {
-			if(stmt != null) {
-				stmt.close();
-				connect.close();
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }//GEN-LAST:event_formMouseMoved
+            rec.close();
+
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            e.printStackTrace();
+        }
+
+        try {
+            if(stmt != null) {
+                stmt.close();
+                connect.close();
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_btn_sActionPerformed
 
     /**
      * @param args the command line arguments
@@ -391,9 +426,9 @@ sorter.setSortKeys(null);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_s;
+    private javax.swing.JTextField in_keys;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -402,7 +437,7 @@ sorter.setSortKeys(null);
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable showcourse;
+    private javax.swing.JComboBox<String> type_s;
     // End of variables declaration//GEN-END:variables
 }

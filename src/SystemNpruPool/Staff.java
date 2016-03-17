@@ -20,7 +20,7 @@ import java.sql.Statement;
  */
 public class Staff {
     public static int St_Id;
-    public String St_Password;
+    public static String St_Password;
     public String St_Name ;
     public String St_Age; 
     public String St_Workday;

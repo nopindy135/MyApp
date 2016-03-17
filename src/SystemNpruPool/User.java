@@ -20,14 +20,14 @@ import java.util.Date;
  */
 public class User extends U_System{
    public static int u_Id;
-   public String u_Firstname;
-   public String u_Lastname;
-   public String u_Address ; 
-   public String u_Birthday ;
+   public static String u_Firstname;
+   public static String u_Lastname;
+   public static String u_Address ; 
+   public static String u_Birthday ;
    public static int u_Age;
-   public String u_CardId ;
-   public int u_Type ;
-   public  String u_Tel;
+   public static String u_CardId ;
+   public static int u_Type ;
+   public  static String u_Tel;
    //method get
    public static boolean status ;
     public int getU_Id(){
@@ -275,7 +275,7 @@ stmt=connect.createStatement();
                 return ch;
 }
 
-    public void InsertUser(int id , String name, String lastname, String address, String birthday, String cardId, int type, String tel) {
+    public void InsertUser(String name, String lastname, String address, String birthday, String cardId, int type, String tel) {
        
 		Connection connect = null;
                 Statement stmt = null;
@@ -285,8 +285,8 @@ stmt=connect.createStatement();
                      connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
 			stmt = connect.createStatement();
 			String sql = "INSERT INTO user " +
-					"(U_ID,U_Firstname,U_Lastname,U_Address,U_Birthday,U_Age,U_CardID,U_Type,U_Tel) " + 
-					"VALUES ('" + id + "','" + name + "','" + lastname + "'"
+					"(U_Firstname,U_Lastname,U_Address,U_Birthday,U_Age,U_CardID,U_Type,U_Tel) " + 
+					"VALUES ('" + name + "','" + lastname + "'"
                                 + "" +
 					",'" + address + "','" + birthday + "',YEAR(FROM_DAYS(DATEDIFF(NOW(),U_Birthday ))),'" + cardId + "','" + type + "','" + tel + "') ";
                          stmt.execute(sql);

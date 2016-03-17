@@ -5,24 +5,35 @@
  */
 package SystemNpruPool;
 
+import static SystemNpruPool.ConnectDB.passwordDB;
+import static SystemNpruPool.ConnectDB.urlConnection;
+import static SystemNpruPool.ConnectDB.usernameDB;
 import java.util.Date;
-
+import java.sql.*;
 /**
  *
  * @author Godonlyknows
  */
 public class TestClass {
-    public static void main(String[] args) {
-  
-      //  User us = new User();
-       // CheckConnetDB cc = new CheckConnetDB();
-      //  cc.CheckConnect();
-       // us.InsertUser("j","ปิยวัตร์", "add", "1994-02-02","1103701451963",1, "0914250644");
-       // System.out.print("1");
-       // us.ShowUser();
-      //  us.DeleteUser(4);
-        //  us.ShowUser();
-        Couse co =new Couse();
-        co.register_coues(1,null,null, 4,3);
+   public static void main(String[] args) throws Exception {
+ 
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        Connection conn = DriverManager.getConnection(
+                "jdbc:mysql://127.0.0.1:3306/npru_pool", "root", "");
+        Statement st = conn.createStatement();
+ 
+        st = conn.createStatement();
+        ResultSet rs = st.executeQuery("  SELECT SUM(P_Money)from payment ");
+ 
+        while (rs.next()) {
+            String name = rs.getString(1);
+            System.out.println(name);
+ 
+        }
+ 
+        rs.close();
+        st.close();
+        conn.close();
+ 
     }
 }

@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public abstract class U_System {
  public abstract  void  InsertUser
-        (int id ,String name
+        (String name
          ,String lastname
          ,String address
          ,String birthday

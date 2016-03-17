@@ -295,16 +295,14 @@ public class user_genneral extends javax.swing.JFrame {
             String in_birth = String.valueOf(in_Birthday.getText());
        //     System.out.println("Date : "+d);
             
-        if(in_uid.getText().equals("")
-                ||in_CardId.getText().equals("")
+        if(
+                in_CardId.getText().equals("")
                 ||in_Firstname.getText().equals("") 
                 ||in_Lastname.getText().equals("")
                 ||in_birth.equals("")
                 ||in_Tel.getText().equals("")
                 ||in_Address.getText().equals("")){
-        if(in_uid.getText().equals("")){
-            cUid="รหัสสมาชิก";
-        }
+       
         if(in_CardId.getText().equals("             ")){
             cUcardid ="รหัสบัตรประชาชน";
         }
@@ -350,9 +348,9 @@ public class user_genneral extends javax.swing.JFrame {
            type=3;
      }
            check = 1;
-             menu m = new menu();
+             user m = new user();
                     m.setVisible(true);
-        us.InsertUser(Integer.valueOf(in_uid.getText()),in_Firstname.getText(),in_Lastname.getText(),in_Address.getText(),String.valueOf(in_Birthday.getText()),in_CardId.getText(),type,in_Tel.getText());
+        us.InsertUser(in_Firstname.getText(),in_Lastname.getText(),in_Address.getText(),String.valueOf(in_Birthday.getText()),in_CardId.getText(),type,in_Tel.getText());
          JOptionPane.showMessageDialog(null,
 	    "บันทึกข้อมูลสำเร็จ.",
 	    "",

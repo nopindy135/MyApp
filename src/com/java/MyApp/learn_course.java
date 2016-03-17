@@ -8,6 +8,8 @@ package com.java.MyApp;
 import static SystemNpruPool.ConnectDB.passwordDB;
 import static SystemNpruPool.ConnectDB.urlConnection;
 import static SystemNpruPool.ConnectDB.usernameDB;
+import SystemNpruPool.Payment;
+import SystemNpruPool.Register;
 import SystemNpruPool.User;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
@@ -33,7 +35,10 @@ String U_Id;
      * Creates new form learn_course
      */
     public learn_course() {
+        
         initComponents();
+        Payment pp = new Payment();
+        System.out.println(pp.CountCheckPayment(9958));
         User uc= new User();
        int uid= uc.getU_Id();
         DefaultTableModel model = (DefaultTableModel)learn_courseTable.getModel();
@@ -54,7 +59,7 @@ sorter.setSortKeys(null);
                     connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
                     stmt=connect.createStatement();
 			//WHERE U_ID ='" + u_id + "' 
-			String sql = "SELECT * FROM  coues join register WHERE coues.C_ID = register.C_ID and register.U_ID ='" +uid+ "'";
+			String sql = "SELECT * FROM  register join coues WHERE coues.C_ID = register.C_ID ";
 			
 			ResultSet rec = stmt.executeQuery(sql);
 			int row = 0;
@@ -62,10 +67,10 @@ sorter.setSortKeys(null);
             {			
 				model.addRow(new Object[0]);
                         
-				model.setValueAt(rec.getString("C_ID"), row, 0);
-				model.setValueAt(rec.getString("C_Name"), row, 1);
-				model.setValueAt(rec.getString("C_Hour_of_Coues"), row, 2);
-				model.setValueAt(rec.getString("C_Hour_Coues"), row, 3);
+				model.setValueAt(rec.getString("R_ID"), row, 0);
+				model.setValueAt(rec.getString("C_ID"), row, 1);
+				model.setValueAt(rec.getString("U_ID"), row, 2);
+				model.setValueAt(rec.getFloat("Count_ID"), row, 3);
 			//	model.setValueAt(rec.getFloat("Budget"), row, 4);
 			//	model.setValueAt(rec.getFloat("Used"), row, 5);
 				row++;
@@ -117,14 +122,14 @@ sorter.setSortKeys(null);
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        in_uid_add = new javax.swing.JTextField();
+        btn_add = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        type_s = new javax.swing.JComboBox<String>();
         jLabel7 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        btn_s = new javax.swing.JButton();
+        in_keys = new javax.swing.JTextField();
 
         jLabel4.setText("jLabel4");
 
@@ -149,7 +154,7 @@ sorter.setSortKeys(null);
 
             },
             new String [] {
-                "รหัสการเข้าเรียน", "รหัสคอร์ส", "รหัสผู้สอน", "รหัสสมาชิก", "จำนวนครั้งการเข้าเรียน"
+                "รหัสการเข้าเรียน", "รหัสคอร์ส", "รหัสสมาชิก", "จำนวนครั้งการเข้าเรียน"
             }
         ));
         learn_courseTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -195,10 +200,15 @@ sorter.setSortKeys(null);
         jLabel5.setForeground(new java.awt.Color(255, 0, 0));
         jLabel5.setText("กรุณากรอกรหัสสมาชิกเพื่อเข้าเรียน");
 
-        jTextField1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        in_uid_add.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jButton1.setText("OK");
+        btn_add.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        btn_add.setText("OK");
+        btn_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -211,9 +221,9 @@ sorter.setSortKeys(null);
                         .addComponent(jLabel5))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(in_uid_add, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(btn_add)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -223,24 +233,34 @@ sorter.setSortKeys(null);
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(in_uid_add, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_add))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel6.setFont(new java.awt.Font("TH Sarabun New", 0, 16)); // NOI18N
         jLabel6.setText("ค้นหาข้อมูลจาก");
 
-        jComboBox1.setFont(new java.awt.Font("TH Sarabun New", 0, 16)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "รหัสการเข้าเรียน", "รหัสคอร์ส", "รหัสผู้สอน", "รหัสสมาชิก" }));
+        type_s.setFont(new java.awt.Font("TH Sarabun New", 0, 16)); // NOI18N
+        type_s.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "รหัสการเข้าเรียน", "รหัสคอร์ส", "รหัสสมาชิก" }));
+        type_s.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type_sActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("TH Sarabun New", 0, 16)); // NOI18N
         jLabel7.setText("กรอกข้อมูลที่ต้องการ");
 
-        jTextField2.setFont(new java.awt.Font("TH Sarabun New", 0, 16)); // NOI18N
+        btn_s.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        btn_s.setText("ค้นหา");
+        btn_s.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_sActionPerformed(evt);
+            }
+        });
 
-        jButton3.setFont(new java.awt.Font("TH Sarabun New", 0, 16)); // NOI18N
-        jButton3.setText("OK");
+        in_keys.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -252,12 +272,12 @@ sorter.setSortKeys(null);
                     .addComponent(jLabel7)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox1, 0, 111, Short.MAX_VALUE)
-                    .addComponent(jTextField2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(type_s, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(in_keys, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btn_s)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,15 +287,15 @@ sorter.setSortKeys(null);
                         .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(type_s, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(in_keys, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton3)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                        .addGap(29, 29, 29)
+                        .addComponent(btn_s)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -283,7 +303,7 @@ sorter.setSortKeys(null);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -303,7 +323,7 @@ sorter.setSortKeys(null);
                         .addGroup(layout.createSequentialGroup()
                             .addGap(225, 225, 225)
                             .addComponent(jButton2))))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,7 +340,7 @@ sorter.setSortKeys(null);
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -344,6 +364,94 @@ sorter.setSortKeys(null);
         user1.setVisible(true);
        
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btn_sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sActionPerformed
+        // TODO add your handling code here:
+        String type = "" ;
+        String key  =  "";
+       // รหัสการเข้าเรียน
+//รหัสคอร์ส
+//รหัสผู้สอน
+//รหัสสมาชิก
+ //"SELECT * FROM  register join coues WHERE coues.C_ID = register.C_ID "
+        if(type_s.getSelectedItem().equals("รหัสสมาชิก")){
+            type="U_ID";
+            key = "SELECT * FROM  register join coues WHERE coues.C_ID = register.C_ID and register." + type + " = '" + Integer.valueOf(in_keys.getText()) + "' ORDER BY register.U_ID ASC";
+        }
+        else if(type_s.getSelectedItem().equals("รหัสคอร์ส")){
+            type="C_ID";
+            key = "SELECT * FROM  register join coues WHERE coues.C_ID = register.C_ID and register." + type + " = '" + Integer.valueOf(in_keys.getText()) + "' ORDER BY register.U_ID ASC";
+
+        }
+
+          else if(type_s.getSelectedItem().equals("รหัสการเข้าเรียน")){
+            type="R_ID";
+            key = "SELECT * FROM  register join coues WHERE coues.C_ID = register.C_ID and register." + type + " = '" + in_keys.getText() + "' ORDER BY register.U_ID ASC";
+
+        }
+        DefaultTableModel model = (DefaultTableModel)learn_courseTable.getModel();
+        model.setRowCount(0);
+        //Header Sort
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel> (model);
+        learn_courseTable.setRowSorter(sorter);
+        Connection connect = null;
+        Statement stmt = null;
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection ( urlConnection,usernameDB,passwordDB);
+
+            stmt=connect.createStatement();
+
+            String sql =key;
+
+            ResultSet rec = stmt.executeQuery(sql);
+            int row = 0;
+            while((rec!=null) && (rec.next()))
+            {
+
+                model.addRow(new Object[0]);
+                model.setValueAt(rec.getString("R_ID"), row, 0);
+                model.setValueAt(rec.getString("C_ID"), row, 1);
+                model.setValueAt(rec.getString("U_ID"), row, 2);
+               
+                model.setValueAt(rec.getFloat("Count_ID"), row, 4);
+                //model.setValueAt(st.getSt_Id(), row, 5);
+                //	model.setValueAt(rec.getFloat("Used"), row, 5);
+                row++;
+            }
+
+            rec.close();
+
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            e.printStackTrace();
+        }
+
+        try {
+            if(stmt != null) {
+                stmt.close();
+                connect.close();
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_btn_sActionPerformed
+
+    private void type_sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type_sActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_type_sActionPerformed
+
+    private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
+        // TODO add your handling code here:
+        Register r = new Register();
+        int timenow =0;
+        timenow =r.Chackoldtime(Integer.valueOf(in_uid_add.getText()));
+        r.CheckinCourse(Integer.valueOf(in_uid_add.getText()),timenow);
+    }//GEN-LAST:event_btn_addActionPerformed
 
     /**
      * @param args the command line arguments
@@ -381,10 +489,11 @@ sorter.setSortKeys(null);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_add;
+    private javax.swing.JButton btn_s;
+    private javax.swing.JTextField in_keys;
+    private javax.swing.JTextField in_uid_add;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -396,8 +505,7 @@ sorter.setSortKeys(null);
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTable learn_courseTable;
+    private javax.swing.JComboBox<String> type_s;
     // End of variables declaration//GEN-END:variables
 }

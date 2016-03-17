@@ -26,34 +26,7 @@ public class swim_pool extends javax.swing.JFrame {
      */
     public swim_pool() {
         initComponents();
-           u.CheckUser(u.getU_Id());
-           if(u.getU_Type() == 1){
-               in_pmoney.setText("50 บาท");
-               pay=50;
-           }
-           else if(u.getU_Type() == 2){
-                in_pmoney.setText("30 บาท");
-               pay=30;
-               
-           }
-            else if(u.getU_Type() == 3){
-                 in_pmoney.setText("30 บาท");
-               pay=30;
-               
-           }
-   
-             System.out.println("u id on  swim_pool= "+u.getU_Id());
-                System.out.println("st id on befor swim_pool= "+st.getSt_Id());
-           st.CheckStaff(st.getSt_Id());
-           System.out.println("st id on after swim_pool= "+st.getSt_Id());
-           st.CheckLogin(st.getSt_Id(),st.getSt_Password());
-            out_uid.setText(String.valueOf(u.getU_Id()));
-            out_ucardid.setText(u.getU_CardId());
-          
-            out_ufirstname.setText(u.getU_Firstname());
-            out_ulastname.setText(u.getU_Lastname());
-            out_ubirthday.setText(u.getU_Birthday());
-            out_utype.setText(String.valueOf(u.getU_Type()));
+           
      
     }
       public void close(){
@@ -87,8 +60,8 @@ public class swim_pool extends javax.swing.JFrame {
         out_utype = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         in_pmoney = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        in_uid = new javax.swing.JTextField();
+        txt_checkid = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -153,9 +126,19 @@ public class swim_pool extends javax.swing.JFrame {
 
         in_pmoney.setText("ค่าบริการ");
 
-        jTextField1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        in_uid.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        in_uid.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                in_uidFocusLost(evt);
+            }
+        });
+        in_uid.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                in_uidKeyPressed(evt);
+            }
+        });
 
-        jButton1.setText("OK");
+        txt_checkid.setText("..");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -173,27 +156,27 @@ public class swim_pool extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(out_ucardid, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(out_ucardid)
                     .addComponent(out_ufirstname)
                     .addComponent(out_ulastname)
                     .addComponent(out_ubirthday)
                     .addComponent(out_utype)
-                    .addComponent(in_pmoney))
+                    .addComponent(in_pmoney)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(in_uid, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_checkid)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(in_uid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_checkid))
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -218,7 +201,7 @@ public class swim_pool extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(in_pmoney))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -272,8 +255,8 @@ public class swim_pool extends javax.swing.JFrame {
         //int money;
         
     
-            System.out.println(pay+currentDate+currentDate1+"เงินสด"+Integer.valueOf(out_uid.getText())+st.getSt_Id());
-         pm.InsertPaymet(pay, currentDate, currentDate1,"เงินสด",Integer.valueOf(out_uid.getText()),st.getSt_Id());
+            System.out.println(pay+currentDate+currentDate1+"เงินสด"+Integer.valueOf(in_uid.getText())+st.getSt_Id());
+         pm.InsertPaymet(pay, currentDate, currentDate1,"เงินสด",Integer.valueOf(in_uid.getText()),st.getSt_Id());
         
             close();
     }//GEN-LAST:event_btn_history_useActionPerformed
@@ -284,6 +267,86 @@ public class swim_pool extends javax.swing.JFrame {
         u.setVisible(true);
         close();
     }//GEN-LAST:event_btn_userActionPerformed
+
+    private void in_uidKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_in_uidKeyPressed
+        // TODO add your handling code here:
+        User da = new User();
+        if(da.CheckUser(Integer.valueOf(in_uid.getText())) == true){
+
+            txt_checkid.setText("รหัสสมาชิกถูกต้อง");
+            u.CheckUser(u.getU_Id());
+           if(u.getU_Type() == 1){
+               in_pmoney.setText("50 บาท");
+               pay=50;
+           }
+           else if(u.getU_Type() == 2){
+                in_pmoney.setText("30 บาท");
+               pay=30;
+               
+           }
+            else if(u.getU_Type() == 3){
+                 in_pmoney.setText("30 บาท");
+               pay=30;
+               
+           }
+   
+             System.out.println("u id on  swim_pool= "+u.getU_Id());
+                System.out.println("st id on befor swim_pool= "+st.getSt_Id());
+           st.CheckStaff(st.getSt_Id());
+           System.out.println("st id on after swim_pool= "+st.getSt_Id());
+           st.CheckLogin(st.getSt_Id(),st.getSt_Password());
+          //  out_uid.setText(String.valueOf(u.getU_Id()));
+            out_ucardid.setText(u.getU_CardId());
+          
+            out_ufirstname.setText(u.getU_Firstname());
+            out_ulastname.setText(u.getU_Lastname());
+            out_ubirthday.setText(String.valueOf(u.getU_Age()));
+            out_utype.setText(String.valueOf(u.getU_Type()));
+        }
+        else{
+            txt_checkid.setText("รหัสสมาชิกไม่ถูกต้อง");
+        }
+    }//GEN-LAST:event_in_uidKeyPressed
+
+    private void in_uidFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_in_uidFocusLost
+        // TODO add your handling code here:
+          User da = new User();
+        if(da.CheckUser(Integer.valueOf(in_uid.getText())) == true){
+
+            txt_checkid.setText("รหัสสมาชิกถูกต้อง");
+            u.CheckUser(u.getU_Id());
+           if(u.getU_Type() == 1){
+               in_pmoney.setText("50 บาท");
+               pay=50;
+           }
+           else if(u.getU_Type() == 2){
+                in_pmoney.setText("30 บาท");
+               pay=30;
+               
+           }
+            else if(u.getU_Type() == 3){
+                 in_pmoney.setText("30 บาท");
+               pay=30;
+               
+           }
+   
+             System.out.println("u id on  swim_pool= "+u.getU_Id());
+                System.out.println("st id on befor swim_pool= "+st.getSt_Id());
+           st.CheckStaff(st.getSt_Id());
+           System.out.println("st id on after swim_pool= "+st.getSt_Id());
+           st.CheckLogin(st.getSt_Id(),st.getSt_Password());
+          //  out_uid.setText(String.valueOf(u.getU_Id()));
+            out_ucardid.setText(u.getU_CardId());
+          
+            out_ufirstname.setText(u.getU_Firstname());
+            out_ulastname.setText(u.getU_Lastname());
+            out_ubirthday.setText(String.valueOf(u.getU_Age()));
+            out_utype.setText(String.valueOf(u.getU_Type()));
+        }
+        else{
+            txt_checkid.setText("รหัสสมาชิกไม่ถูกต้อง");
+        }
+    }//GEN-LAST:event_in_uidFocusLost
 
     /**
      * @param args the command line arguments
@@ -324,7 +387,7 @@ public class swim_pool extends javax.swing.JFrame {
     private javax.swing.JButton btn_history_use;
     private javax.swing.JButton btn_user;
     private javax.swing.JLabel in_pmoney;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField in_uid;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -334,11 +397,11 @@ public class swim_pool extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel out_ubirthday;
     private javax.swing.JLabel out_ucardid;
     private javax.swing.JLabel out_ufirstname;
     private javax.swing.JLabel out_ulastname;
     private javax.swing.JLabel out_utype;
+    private javax.swing.JLabel txt_checkid;
     // End of variables declaration//GEN-END:variables
 }

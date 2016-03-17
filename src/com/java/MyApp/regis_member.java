@@ -28,18 +28,18 @@ public class regis_member extends javax.swing.JFrame {
         initComponents();
            u.CheckUser(u.getU_Id());
             if(u.getU_Age() > 12){
-           rid_Mtype1.setVisible(false);
+           in_c2.setVisible(false);
         }
         else if(u.getU_Age() < 12){
-            rid_Mtype2.setVisible(false);
+            in_c1.setVisible(false);
         }
         st.CheckStaff(st.getSt_Id());
         st.CheckLogin(st.getSt_Id(),st.getSt_Password());
-        txt_Uid.setText(String.valueOf(u.getU_Id()));
-        txt_UcardId.setText(u.getU_CardId());
-        txt_fname.setText(u.getU_Firstname());
-            txt_lname.setText(u.getU_Lastname());
-            txt_birthday.setText(u.getU_Birthday());
+       // txt_Uid.setText(String.valueOf(u.getU_Id()));
+        out_ucardid.setText(u.getU_CardId());
+        out_ufirstname.setText(u.getU_Firstname());
+            out_ulastname.setText(u.getU_Lastname());
+            out_uage.setText(u.getU_Birthday());
     }
 public void close(){
         WindowEvent winclose = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
@@ -61,20 +61,20 @@ public void close(){
         btn_member = new javax.swing.JButton();
         btn_user = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        txt_UcardId = new javax.swing.JLabel();
+        out_ucardid = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txt_fname = new javax.swing.JLabel();
-        txt_birthday = new javax.swing.JLabel();
-        rid_Mtype2 = new javax.swing.JRadioButton();
+        out_ufirstname = new javax.swing.JLabel();
+        out_uage = new javax.swing.JLabel();
+        in_c1 = new javax.swing.JRadioButton();
         jLabel12 = new javax.swing.JLabel();
-        rid_Mtype1 = new javax.swing.JRadioButton();
+        in_c2 = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
-        txt_lname = new javax.swing.JLabel();
+        out_ulastname = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        in_uid = new javax.swing.JTextField();
+        txt_checkid = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -87,7 +87,7 @@ public void close(){
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Add User-50.png"))); // NOI18N
@@ -111,8 +111,8 @@ public void close(){
             }
         });
 
-        txt_UcardId.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        txt_UcardId.setText("...........................................");
+        out_ucardid.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_ucardid.setText("...........................................");
 
         jLabel2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
@@ -124,61 +124,62 @@ public void close(){
         jLabel4.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel4.setText("ชื่อ");
 
-        txt_fname.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        txt_fname.setText(".........................................");
+        out_ufirstname.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_ufirstname.setText(".........................................");
 
-        txt_birthday.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        txt_birthday.setText(".........................................");
+        out_uage.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_uage.setText(".........................................");
 
-        rid_Mtype2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        rid_Mtype2.setText("อายุมากกว่า 12 ปี ค่าบริการ 1200 บาท");
-        rid_Mtype2.addActionListener(new java.awt.event.ActionListener() {
+        in_c1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        in_c1.setText("อายุมากกว่า 12 ปี ค่าบริการ 1200 บาท");
+        in_c1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rid_Mtype2ActionPerformed(evt);
+                in_c1ActionPerformed(evt);
             }
         });
 
         jLabel12.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel12.setText("ค่าบริการ");
 
-        rid_Mtype1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        rid_Mtype1.setText("อายุไม่เกิน 12 ปี ค่าบริการ 1000 บาท");
-        rid_Mtype1.addActionListener(new java.awt.event.ActionListener() {
+        in_c2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        in_c2.setText("อายุไม่เกิน 12 ปี ค่าบริการ 1000 บาท");
+        in_c2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rid_Mtype1ActionPerformed(evt);
+                in_c2ActionPerformed(evt);
             }
         });
 
         jLabel6.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel6.setText("นามสกุล");
 
-        txt_lname.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        txt_lname.setText(".........................................");
+        out_ulastname.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        out_ulastname.setText(".........................................");
 
         jLabel8.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel8.setText("อายุ");
 
-        jTextField1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        in_uid.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        in_uid.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                in_uidFocusLost(evt);
+            }
+        });
 
-        jButton1.setText("OK");
+        txt_checkid.setText("..");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel12)
-                        .addComponent(rid_Mtype1)
-                        .addComponent(rid_Mtype2))
+                        .addComponent(in_c2)
+                        .addComponent(in_c1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel3)
@@ -187,45 +188,50 @@ public void close(){
                                     .addComponent(jLabel8))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_birthday)
+                                    .addComponent(out_uage)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txt_UcardId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txt_fname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txt_lname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                        .addComponent(out_ucardid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(out_ufirstname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(out_ulastname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(in_uid, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_checkid)))
                         .addGap(6, 6, 6)))
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
+                    .addComponent(in_uid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_checkid)
+                    .addComponent(jLabel2))
+                .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txt_UcardId))
+                    .addComponent(out_ucardid))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txt_fname))
+                    .addComponent(out_ufirstname))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txt_lname))
+                    .addComponent(out_ulastname))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txt_birthday))
+                    .addComponent(out_uage))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rid_Mtype1)
+                .addComponent(in_c2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rid_Mtype2)
+                .addComponent(in_c1)
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -283,23 +289,73 @@ public void close(){
         String currentDate = df.format(c.getTime());//ปีเดือนวัน
         String currentDate1= df1.format(c.getTime());//ปีเดือนวัน+เวลาล
        User me =new User();
-       System.out.println(rid_Mtype1.getText());
-        if(rid_Mtype1.isSelected()){
-            me.InsertMember(String.valueOf(u.getU_Id()),rid_Mtype1.getText(),currentDate1,currentDate1);
+       System.out.println(in_c2.getText());
+        if(in_c2.isSelected()){
+            me.InsertMember(String.valueOf(in_uid.getText()),in_c2.getText(),currentDate1,currentDate1);
         }
-        else if (rid_Mtype2.isSelected()){
-              me.InsertMember(String.valueOf(u.getU_Id()),rid_Mtype2.getText(),currentDate1,currentDate1);
+        else if (in_c1.isSelected()){
+              me.InsertMember(String.valueOf(in_uid.getText()),in_c1.getText(),currentDate1,currentDate1);
         }
-        
+                 user u =new user();
+        u.setVisible(true);
+        close();
     }//GEN-LAST:event_btn_memberActionPerformed
 
-    private void rid_Mtype2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rid_Mtype2ActionPerformed
+    private void in_c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_c1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rid_Mtype2ActionPerformed
+    }//GEN-LAST:event_in_c1ActionPerformed
 
-    private void rid_Mtype1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rid_Mtype1ActionPerformed
+    private void in_c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_c2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rid_Mtype1ActionPerformed
+    }//GEN-LAST:event_in_c2ActionPerformed
+
+    private void in_uidFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_in_uidFocusLost
+        // TODO add your handling code here:
+          User da = new User();
+        if(da.CheckUser(Integer.valueOf(in_uid.getText())) == true){
+
+            txt_checkid.setText("รหัสสมาชิกถูกต้อง");
+            u.CheckUser(u.getU_Id());
+        if(u.getU_Age() > 12){
+            in_c1.setVisible(false);
+                        in_c2.setVisible(true);
+                             //out_pricecourse.setText("95 บาท");
+        }
+        else if(u.getU_Age() < 12){
+            in_c2.setVisible(false);
+               in_c1.setVisible(true);
+                 //   out_pricecourse.setText("90 บาท");
+        }
+             System.out.println("u id on  swim_pool= "+u.getU_Id());
+                System.out.println("st id on befor swim_pool= "+st.getSt_Id());
+           st.CheckStaff(st.getSt_Id());
+           System.out.println("st id on after swim_pool= "+st.getSt_Id());
+           st.CheckLogin(st.getSt_Id(),st.getSt_Password());
+       //     out_uid.setText(String.valueOf(u.getU_Id()));
+        
+           out_ucardid.setText(u.getU_CardId());
+            out_ufirstname.setText(u.getU_Firstname());
+            out_ulastname.setText(u.getU_Lastname());
+       out_uage.setText(String.valueOf(u.getU_Age()));
+       if(in_c1.isSelected()){
+          //   out_pricecourse.setText("90 บาท");
+       }
+       else if(in_c2.isSelected()){
+            //  out_pricecourse.setText("95 บาท");
+       }
+        }
+       else{
+            out_ucardid.setText("");
+            out_uage.setText("");
+            out_ufirstname.setText("");
+            out_ulastname.setText("");
+            in_c1.setVisible(false);
+            in_c2.setVisible(false);
+         //   out_pricecourse.setText("");
+            txt_checkid.setText("รหัสสมาชิกไม่ถูกต้อง");
+       }
+       
+    }//GEN-LAST:event_in_uidFocusLost
 
     /**
      * @param args the command line arguments
@@ -340,7 +396,9 @@ public void close(){
     private javax.swing.JButton btn_member;
     private javax.swing.JButton btn_user;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JRadioButton in_c1;
+    private javax.swing.JRadioButton in_c2;
+    private javax.swing.JTextField in_uid;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
@@ -350,12 +408,10 @@ public void close(){
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JRadioButton rid_Mtype1;
-    private javax.swing.JRadioButton rid_Mtype2;
-    private javax.swing.JLabel txt_UcardId;
-    private javax.swing.JLabel txt_birthday;
-    private javax.swing.JLabel txt_fname;
-    private javax.swing.JLabel txt_lname;
+    private javax.swing.JLabel out_uage;
+    private javax.swing.JLabel out_ucardid;
+    private javax.swing.JLabel out_ufirstname;
+    private javax.swing.JLabel out_ulastname;
+    private javax.swing.JLabel txt_checkid;
     // End of variables declaration//GEN-END:variables
 }
