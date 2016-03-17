@@ -81,7 +81,6 @@ public class course_swim extends javax.swing.JFrame {
         in_c2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        out_uid = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         out_ufirstname = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -90,6 +89,8 @@ public class course_swim extends javax.swing.JFrame {
         out_ubirthday = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         out_uage = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -139,10 +140,8 @@ public class course_swim extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 0, 0));
         jLabel4.setText("รหัสสมาชิก");
-
-        out_uid.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        out_uid.setText("......................");
 
         jLabel2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel2.setText("ชื่อ");
@@ -157,7 +156,7 @@ public class course_swim extends javax.swing.JFrame {
         out_ulastname.setText(".......................");
 
         jLabel5.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel5.setText("วัน / เดือน / ปี เกิด");
+        jLabel5.setText("อายุ");
 
         out_ubirthday.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         out_ubirthday.setText(".......................");
@@ -168,34 +167,42 @@ public class course_swim extends javax.swing.JFrame {
         out_uage.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         out_uage.setText(".........................");
 
+        jTextField1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+
+        jButton1.setText("OK");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel8)
                     .addComponent(jLabel5)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(jLabel4))
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(out_uid)
                     .addComponent(out_ufirstname)
                     .addComponent(out_ulastname)
                     .addComponent(out_ubirthday)
-                    .addComponent(out_uage))
-                .addContainerGap(52, Short.MAX_VALUE))
+                    .addComponent(out_uage)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(out_uid))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -235,11 +242,8 @@ public class course_swim extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1)))))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,6 +396,7 @@ public class course_swim extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton in_c1;
     private javax.swing.JButton in_c2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -401,11 +406,11 @@ public class course_swim extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel out_pricecourse;
     private javax.swing.JLabel out_uage;
     private javax.swing.JLabel out_ubirthday;
     private javax.swing.JLabel out_ufirstname;
-    private javax.swing.JLabel out_uid;
     private javax.swing.JLabel out_ulastname;
     // End of variables declaration//GEN-END:variables
 }

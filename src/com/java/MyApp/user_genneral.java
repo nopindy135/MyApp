@@ -37,8 +37,6 @@ public class user_genneral extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        in_uid = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         in_Firstname = new javax.swing.JTextField();
@@ -54,39 +52,19 @@ public class user_genneral extends javax.swing.JFrame {
         in_CardId = new javax.swing.JFormattedTextField();
         in_Tel = new javax.swing.JFormattedTextField();
         in_Birthday = new javax.swing.JTextField();
-        txt_erroruid = new javax.swing.JLabel();
         txt_errorbirthday = new javax.swing.JLabel();
         txt_errortel = new javax.swing.JLabel();
         txt_errorcardid = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        in_type = new javax.swing.JComboBox<String>();
+        in_type = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("TH Sarabun New", 0, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Actions-user-group-new-icon.png"))); // NOI18N
-        jLabel1.setText("เพิ่มผู้เข้าใช้งาน : ");
-
-        in_uid.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        in_uid.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                in_uidFocusLost(evt);
-            }
-        });
-        in_uid.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                in_uidActionPerformed(evt);
-            }
-        });
-        in_uid.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                in_uidKeyReleased(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel2.setText("รหัสสมาชิก");
+        jLabel1.setText("เพิ่มผู้เข้าใช้งาน :  เพิ่มข้อมูลผู้ใช้งานใหม่ ( * สำหรับผู้เข้าใช้งานครั้งแรก )");
 
         jLabel3.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel3.setText("รหัสบัตรประชาชน");
@@ -177,9 +155,6 @@ public class user_genneral extends javax.swing.JFrame {
             }
         });
 
-        txt_erroruid.setForeground(new java.awt.Color(255, 0, 0));
-        txt_erroruid.setText("..");
-
         txt_errorbirthday.setForeground(new java.awt.Color(255, 0, 0));
         txt_errorbirthday.setText("..");
 
@@ -192,7 +167,7 @@ public class user_genneral extends javax.swing.JFrame {
         jLabel9.setText("ประเภทสมาชิก");
 
         in_type.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        in_type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "บุคคลภายนอก", "นิสิต - นักศึกษา", "บุคลากร - อาจารย์" }));
+        in_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "บุคคลภายนอก", "นิสิต - นักศึกษา", "บุคลากร - อาจารย์" }));
         in_type.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 in_typeActionPerformed(evt);
@@ -213,7 +188,6 @@ public class user_genneral extends javax.swing.JFrame {
                                 .addGap(41, 41, 41)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel8)
@@ -221,10 +195,6 @@ public class user_genneral extends javax.swing.JFrame {
                                     .addComponent(jLabel9))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(in_uid, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txt_erroruid))
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -260,11 +230,6 @@ public class user_genneral extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(in_uid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_erroruid))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -414,23 +379,6 @@ public class user_genneral extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_in_TelActionPerformed
 
-    private void in_uidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_uidActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_in_uidActionPerformed
-
-    private void in_uidFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_in_uidFocusLost
-        // TODO add your handling code here:
-     //   User uch= new User();
-      //  boolean checkuid =  uch.CheckU_Id(Integer.valueOf(in_uid.getText()));
-      // if(checkuid == true){
-        //       txt_erroruid.setText("รหัสสมาชิกซ้ำ");
-    
-   //    }
-     //  if(checkuid == false){
-       //    txt_erroruid.setText("รหัสสมาชิกไม่ซ้ำ");
-       
-    }//GEN-LAST:event_in_uidFocusLost
-
     private void in_BirthdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_BirthdayActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_in_BirthdayActionPerformed
@@ -468,19 +416,6 @@ public class user_genneral extends javax.swing.JFrame {
            txt_errorcardid.setText("");
      }
     }//GEN-LAST:event_in_CardIdFocusLost
-
-    private void in_uidKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_in_uidKeyReleased
-        // TODO add your handling code here:
-        User uch= new User();
-        boolean checkuid =  uch.CheckU_Id(Integer.valueOf(in_uid.getText()));
-       if(checkuid == true){
-               txt_erroruid.setText("รหัสสมาชิกซ้ำ");
-    
-       }
-       if(checkuid == false){
-           txt_erroruid.setText("รหัสสมาชิกไม่ซ้ำ");
-       }
-    }//GEN-LAST:event_in_uidKeyReleased
 
     private void in_typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_typeActionPerformed
         // TODO add your handling code here:
@@ -529,11 +464,9 @@ public class user_genneral extends javax.swing.JFrame {
     private javax.swing.JTextField in_Lastname;
     private javax.swing.JFormattedTextField in_Tel;
     private javax.swing.JComboBox<String> in_type;
-    private javax.swing.JTextField in_uid;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -545,6 +478,5 @@ public class user_genneral extends javax.swing.JFrame {
     private javax.swing.JLabel txt_errorbirthday;
     private javax.swing.JLabel txt_errorcardid;
     private javax.swing.JLabel txt_errortel;
-    private javax.swing.JLabel txt_erroruid;
     // End of variables declaration//GEN-END:variables
 }

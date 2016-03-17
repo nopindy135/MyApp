@@ -75,7 +75,6 @@ public class swim_pool extends javax.swing.JFrame {
         btn_user = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        out_uid = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         out_ucardid = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -88,6 +87,8 @@ public class swim_pool extends javax.swing.JFrame {
         out_utype = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         in_pmoney = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -114,10 +115,8 @@ public class swim_pool extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setText("รหัสสมาชิก");
-
-        out_uid.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        out_uid.setText(".....................................");
 
         jLabel4.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         jLabel4.setText("รหัสบัตรประชาชน");
@@ -138,7 +137,7 @@ public class swim_pool extends javax.swing.JFrame {
         out_ulastname.setText(".....................................");
 
         jLabel10.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        jLabel10.setText("ัวัน/เดือน/ปี เกิด");
+        jLabel10.setText("อายุ");
 
         out_ubirthday.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         out_ubirthday.setText(".....................................");
@@ -153,6 +152,10 @@ public class swim_pool extends javax.swing.JFrame {
         jLabel15.setText("ค่าบริการ");
 
         in_pmoney.setText("ค่าบริการ");
+
+        jTextField1.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+
+        jButton1.setText("OK");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -170,23 +173,28 @@ public class swim_pool extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(out_uid)
-                    .addComponent(out_ucardid)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(out_ucardid, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(out_ufirstname)
                     .addComponent(out_ulastname)
                     .addComponent(out_ubirthday)
                     .addComponent(out_utype)
                     .addComponent(in_pmoney))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(out_uid))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(out_ucardid))
@@ -223,9 +231,9 @@ public class swim_pool extends javax.swing.JFrame {
                         .addGap(75, 75, 75)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(18, 18, 18)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btn_history_use, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -316,6 +324,7 @@ public class swim_pool extends javax.swing.JFrame {
     private javax.swing.JButton btn_history_use;
     private javax.swing.JButton btn_user;
     private javax.swing.JLabel in_pmoney;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -325,10 +334,10 @@ public class swim_pool extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel out_ubirthday;
     private javax.swing.JLabel out_ucardid;
     private javax.swing.JLabel out_ufirstname;
-    private javax.swing.JLabel out_uid;
     private javax.swing.JLabel out_ulastname;
     private javax.swing.JLabel out_utype;
     // End of variables declaration//GEN-END:variables
